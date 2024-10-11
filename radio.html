@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        select{
+            width: 2cm;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+	<div class="scanline"></div>
+<div class="wrapper">	
+<div class="content clearfix">
+    <header class="site clearfix">
+		<div class="col one">
+			
+		</div>
+			<div class="col two">
+				<h4>Glith_020 <br /> <b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+				<p>----------------------------------------</p>
+				<p>E.C.C. Terminal v 1.0.0</p>
+				<p>&copy; Glith_020, 2024 </p>
+				<p>- Radio -</p>
+			</div>
+		</header>
+    <div class="player-container">
+        <audio id="audio-player" controls autoplay>
+            <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="controls">
+            <button id="play-btn">Play</button>
+            <button id="stop-btn">Stop</button>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+            <select id="station-select">
+                <option value="Radio CHEM">Radio CHEM</option>
+                <option value="Enclave Radio">Enclave Radio</option>
+                <!-- Add more stations as needed -->
+            </select>
+        </div>
+    </div>
+</div>
+</div>
+    <script src="scripts.js">
+        	
+	
+            $(document).ready(function(){
+      $('#title').focus();
+        $('#text').autosize();
+    });
+    
+    </script>
+</body>
+</html>
