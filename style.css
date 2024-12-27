@@ -287,5 +287,10 @@ a.button:hover {
 }
 .swiatlo{
     position: fixed;
+	width: 50%;
+	height: 50%;
+}
+sigma{
+	display: inline;
 }
 .upper { text-transform: uppercase; }
