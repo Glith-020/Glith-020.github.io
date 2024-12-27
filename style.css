@@ -285,5 +285,7 @@ a.button:hover {
   overflow: auto;
   zoom: 1;
 }
-
+.swiatlo{
+    position: fixed;
+}
 .upper { text-transform: uppercase; }
