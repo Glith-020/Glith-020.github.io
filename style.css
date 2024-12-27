@@ -292,7 +292,7 @@ a.button:hover {
 }
 sigma{
 	display: inline;
-	width: 50%;
-	height: 10%;
+	width: 10%;
+	height: 5%;
 }
 .upper { text-transform: uppercase; }
