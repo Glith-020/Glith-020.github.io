@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FLESH PIT - Glithflix</title>
+    <link rel="stylesheet" href="games.css">
+</head>
+<body>
+    <header>
+        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="glithflix.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="movie-detail">
+            <div class="movie-poster">
+                <img src="flesh.png" alt="Movie Title Poster">
+            </div>
+            <div class="movie-info">
+                <h1>THE FLESH PIT</h1>
+                <p class="movie-meta">2025 | R rating | 15m | Horror</p>
+                <p class="movie-description">
+                    A short movie about the dangers of the Mystery Flesh Pit National Park.
+                </p>
+                <div class="movie-actions">
+                    <button class="play-button" onclick="playVideo()">Play</button>
+                </div>
+                <div class="movie-cast">
+                    <p><strong>Cast:</strong> Glith Rylan Wynter, Dave Miller</p>
+                    <p><strong>Director:</strong> Glith Rylan Wynter</p>
+                </div>
+            </div>
+        </section>
+        <section class="video-player" id="videoPlayer" style="display: none;">
+            <iframe id="movieEmbed" src="https://drive.google.com/file/d/1A2PA3lfLHoYI6hxWiQfWOGX1tLBPotiY/preview" width="640" height="480" allow="autoplay"></iframe>
+        </section>
+    </main>
+    <script src="games.js"></script>
+    <script>
+        function playVideo() {
+            document.getElementById('videoPlayer').style.display = 'block';
+            // If the iframe is already in the DOM, we don't need to reload it.
+            var iframe = document.getElementById('movieEmbed');
+            if (!iframe.src) {
+                iframe.src = "https://drive.google.com/file/d/1A2PA3lfLHoYI6hxWiQfWOGX1tLBPotiY/preview";
+            }
+        }
+    </script>
+</body>
+</html>
