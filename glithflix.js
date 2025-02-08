@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'ECC GAMES',
             description: 'The Enclave Chemical Corps plays with the poor and whoever survives, wins big money.',
-            image: 'image.png',
+            image: 'baner.png',
             link: 'comingsoon.html'
         },
         // Add more movie objects here
