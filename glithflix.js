@@ -9,10 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'ECC GAMES',
             description: 'The Enclave Chemical Corps plays with the poor and whoever survives, wins big money.',
-            image: 'baner.png',
-            link: 'comingsoon.html'
+            image: 'image.png',
+            link: 'ECCGAMES.html'
         },
-        // Add more movie objects here
+        {
+            title: 'THE FLESH PIT',
+            description: 'A short movie about the dangers of the Mystery Flesh Pit National Park.',
+            image: 'FLESHB.png', // Use the appropriate image path here
+            link: 'THE FLESH PIT.html' // Update the link to the page for The Flesh Pit movie
+        },
+        // You can add more movie objects here if needed
     ];
 
     function displayMovies(movies) {
