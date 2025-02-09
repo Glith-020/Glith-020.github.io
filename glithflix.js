@@ -55,3 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     displayMovies(movies);
 });
+window.addEventListener('load', function() {
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
+    } else {
+        console.error('Loading screen element not found.');
+    }
+});
