@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'THE FLESH PIT 2',
             description: 'A group of rangers notices a dissapearance and goes deep down to discover the truth.',
-            image: 'flesh2.png', // Use the appropriate image path here
+            image: 'flesh2', // Use the appropriate image path here
             link: 'fleshsoon.html' // Update the link to the page for The Flesh Pit movie
         },
         
