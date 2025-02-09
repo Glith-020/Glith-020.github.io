@@ -10,3 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
         movieVideo.play();
     });
 });
+window.addEventListener('load', function() {
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
+    } else {
+        console.error('Loading screen element not found.');
+    }
+});
