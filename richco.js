@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Text',
             description: 'Text',
-            image: 'image.png',
+            image: 'imagee.png',
             link: 'movie.html'
         },
         
