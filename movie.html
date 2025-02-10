@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FLESH PIT - Glithflix</title>
+    <link rel="stylesheet" href="movie.css">
+    <link rel="icon" type="image/png" href="RichCO.png">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <img src="Logo.png" alt="Logo" class="logo">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <img src="Logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="RichCo+.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="movie-detail">
+            <div class="movie-poster">
+                <img src="baner.png" alt="Movie Title Poster">
+            </div>
+            <div class="movie-info">
+                <h1>TITLE</h1>
+                <p class="movie-meta">2025 | age rating | length | type</p>
+                <p class="movie-description">
+                    Descriptiom
+                </p>
+                <div class="movie-actions">
+                    <button class="play-button" onclick="playVideo('movie')">Play</button>
+                    <button class="play-button" onclick="playVideo('trailer')">Trailer</button>
+                </div>
+                <div class="movie-cast">
+                    <p><strong>Cast:</strong> Glith Rylan Wynter, Dave Miller, Schnitzel</p>
+                    <p><strong>Director:</strong> Glith Rylan Wynter</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Player Section -->
+        <section class="video-player" id="videoPlayer" style="display: none;">
+            <div class="video-container">
+                <iframe id="movieEmbed" allow="autoplay"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="movie.js"></script>
+    <script>
+        function playVideo(type) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const iframe = document.getElementById('movieEmbed');
+
+            videoPlayer.style.display = 'block';
+
+
+            if (type === 'movie') {
+                iframe.src = "https://drive.google.com/file/d/ID/preview";
+            } else if (type === 'trailer') {
+                iframe.src = "https://drive.google.com/file/d/ID/preview"; // Replace ID with the actual ID (look at tutorial.txt)
+            }
+        }
+    </script>
+</body>
+</html>
