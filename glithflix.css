@@ -5,6 +5,7 @@ body {
     color: #fff;
 }
 
+/* Header */
 header {
     display: flex;
     align-items: center;
@@ -16,8 +17,18 @@ header {
     z-index: 100;
 }
 
+/* Logo */
 .logo {
     width: 100px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
 }
 
 nav ul {
@@ -25,8 +36,9 @@ nav ul {
     display: flex;
     margin-left: auto;
     padding: 0;
-    overflow-x: auto;
     white-space: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 nav li {
@@ -41,12 +53,14 @@ nav a {
     font-size: 1rem;
     padding: 14px 16px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 nav a:hover {
     color: #e50914; /* Netflix hover color */
 }
 
+/* Hero Section */
 .hero {
     position: relative;
     width: 100%;
@@ -85,6 +99,7 @@ nav a:hover {
     text-transform: uppercase;
 }
 
+/* Movie Section */
 .movie-section {
     padding: 20px;
     background-color: #1c1c1c;
@@ -92,9 +107,10 @@ nav a:hover {
 
 .movie-container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     gap: 15px;
     padding-bottom: 20px;
+    scroll-behavior: smooth;
 }
 
 .movie {
@@ -132,6 +148,7 @@ nav a:hover {
     background-color: #f40612;
 }
 
+/* Scrollbar Styling */
 .movie-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -145,6 +162,7 @@ nav a:hover {
     background-color: #333;
 }
 
+/* General Buttons */
 .button {
     display: inline-block;
     background-color: #e50914;
@@ -162,6 +180,7 @@ nav a:hover {
 .button:hover {
     background-color: #f40612;
 }
+
 /* Coming Soon Section */
 .coming-soon {
     padding: 40px;
@@ -186,6 +205,7 @@ nav a:hover {
     color: #ccc;
 }
 
+/* Movie Info Section */
 .movie-info {
     text-align: left;
     background-color: #222;
@@ -208,6 +228,7 @@ nav a:hover {
     margin-top: 20px;
 }
 
+/* Disabled Button */
 button[disabled] {
     background-color: #666;
     cursor: not-allowed;
@@ -216,6 +237,7 @@ button[disabled] {
 button[disabled]:hover {
     background-color: #666;
 }
+
 /* Loading Screen */
 .loading-screen {
     position: fixed;
@@ -231,13 +253,13 @@ button[disabled]:hover {
     z-index: 9999; /* Ensure it's on top */
 }
 
-/* Logo */
+/* Loading Screen Logo */
 .logo {
     width: 150px; /* Adjust size as needed */
     margin-bottom: 20px; /* Space between logo and spinner */
 }
 
-/* Spinner */
+/* Spinner Animation */
 .spinner {
     border: 8px solid #f3f3f3; /* Light grey background */
     border-top: 8px solid #e50914; /* Red color */
@@ -247,8 +269,42 @@ button[disabled]:hover {
     animation: spin 1s linear infinite;
 }
 
-/* Spinner Animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content {
+        max-width: 80%;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .movie {
+        width: 130px;
+    }
+
+    .movie img {
+        height: 195px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 10px;
+    }
 }
