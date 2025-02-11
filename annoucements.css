@@ -245,18 +245,12 @@ nav a:hover {
 }
 
 /* Responsive Design */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    /* Adjust header navigation */
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    .hero {
+        height: 50vh;
     }
 
-    nav li {
-        margin: 10px 0;
-    }
-
-    /* Make hero content take more space */
     .hero-content {
         max-width: 80%;
     }
@@ -269,6 +263,21 @@ nav a:hover {
         font-size: 1rem;
     }
 
+    .movie {
+        width: 130px;
+    }
+
+    .movie img {
+        height: 195px;
+    }
+
+    nav ul {
+        margin-left: 10px; /* Adjusted for smaller screens */
+    }
+
+    nav a {
+        padding: 10px;
+    }
     /* Announcement layout for smaller screens */
     .announcement {
         padding: 15px;
@@ -279,40 +288,6 @@ nav a:hover {
     }
 
     .announcement p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Even more compact header */
-    header {
-        padding: 15px;
-    }
-
-    .logo {
-        width: 80px;
-    }
-
-    nav ul {
-        display: block;
-        text-align: center;
-    }
-
-    nav li {
-        margin: 5px 0;
-    }
-
-    /* Adjust hero section */
-    .hero-content {
-        max-width: 90%;
-        left: 10px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero-content p {
         font-size: 0.9rem;
     }
 }
