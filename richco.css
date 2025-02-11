@@ -263,3 +263,37 @@ button[disabled]:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content {
+        max-width: 80%;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .movie {
+        width: 130px;
+    }
+
+    .movie img {
+        height: 195px;
+    }
+
+    nav ul {
+        margin-left: 10px; /* Adjusted for smaller screens */
+    }
+
+    nav a {
+        padding: 10px;
+    }
+}
