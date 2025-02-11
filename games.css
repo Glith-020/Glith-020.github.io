@@ -13,6 +13,18 @@ header {
 }
 
 /* Logo */
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Logo */
 .logo {
     width: 100px;
 }
@@ -22,6 +34,7 @@ nav {
     display: flex;
     align-items: center;
     width: 100%;
+    overflow-x: auto;
 }
 
 nav ul {
@@ -29,17 +42,29 @@ nav ul {
     display: flex;
     padding: 0;
     margin-left: 20px; /* Moves menu closer to the left */
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 nav li {
-    margin-left: 10px; /* Reduced spacing to keep menu tighter */
+    display: inline-block;
+    margin: 0;
 }
 
 nav a {
+    display: inline-block;
     text-decoration: none;
     color: #fff;
-    font-weight: bold;
+    font-size: 1rem;
+    padding: 14px 16px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
 }
+
+nav a:hover {
+    color: #e50914; /* Netflix hover color */
+}
+
 
 /* Movie Detail Section */
 .movie-detail {
