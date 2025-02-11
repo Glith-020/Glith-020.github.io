@@ -25,7 +25,6 @@ header {
 /* Navigation Menu */
 nav {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     width: 100%;
     overflow-x: auto;
@@ -34,10 +33,9 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    margin-left: auto;
     padding: 0;
+    margin-left: 20px; /* Moves menu closer to the left */
     white-space: nowrap;
-    max-width: 100%;
     overflow-x: auto;
 }
 
@@ -301,7 +299,7 @@ button[disabled]:hover {
     }
 
     nav ul {
-        justify-content: center;
+        margin-left: 10px; /* Adjusted for smaller screens */
     }
 
     nav a {
