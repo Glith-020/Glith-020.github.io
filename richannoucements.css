@@ -1,0 +1,291 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #021c07;
+    color: #fff;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin-left: 20px; /* Moves menu closer to the left */
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 14px 16px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #23e509; /* Netflix hover color */
+}
+
+/* Hero Section */
+.announcement-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: #333;
+    margin-top: 80px; /* Space for fixed header */
+}
+
+.announcement-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.hero-content .button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Announcements Section */
+.announcements {
+    padding: 20px;
+    background-color: #1c1c1c;
+}
+
+.announcement {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.announcement:hover {
+    transform: scale(1.02);
+}
+
+.announcement h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.announcement p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #39e509;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #22f406;
+}
+
+/* Scrollable Movies Section */
+.movie-section {
+    padding: 20px;
+    background-color: #1c1c1c;
+}
+
+.movie-container {
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.movie {
+    width: 150px;
+    text-align: center;
+}
+
+.movie img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.movie h3 {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.movie .button {
+    display: inline-block;
+    background-color: #09e51b;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.movie .button:hover {
+    background-color: #06f41e;
+}
+
+/* Scrollbar Customization */
+.movie-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movie-container::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 10px;
+}
+
+.movie-container::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 56, 4, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Logo */
+.loading-screen .logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Spinner */
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0de509;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content {
+        max-width: 80%;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .movie {
+        width: 130px;
+    }
+
+    .movie img {
+        height: 195px;
+    }
+
+    nav ul {
+        margin-left: 10px; /* Adjusted for smaller screens */
+    }
+
+    nav a {
+        padding: 10px;
+    }
+    /* Announcement layout for smaller screens */
+    .announcement {
+        padding: 15px;
+    }
+
+    .announcement h2 {
+        font-size: 1.3rem;
+    }
+
+    .announcement p {
+        font-size: 0.9rem;
+    }
+}
