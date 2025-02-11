@@ -12,19 +12,27 @@ header {
     background-color: #000;
 }
 
+/* Logo */
 .logo {
     width: 100px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
     padding: 0;
+    margin-left: 20px; /* Moves menu closer to the left */
 }
 
 nav li {
-    margin-left: 20px;
+    margin-left: 10px; /* Reduced spacing to keep menu tighter */
 }
 
 nav a {
@@ -33,6 +41,7 @@ nav a {
     font-weight: bold;
 }
 
+/* Movie Detail Section */
 .movie-detail {
     display: flex;
     padding: 40px;
@@ -61,6 +70,7 @@ nav a {
     margin-top: 20px;
 }
 
+/* Play Button */
 .play-button {
     background-color: #e50914;
     color: #fff;
@@ -75,12 +85,13 @@ nav a {
     background-color: #f6121d;
 }
 
+/* Movie Cast */
 .movie-cast {
     margin-top: 20px;
     color: #b3b3b3;
 }
 
-/* New CSS for the video container */
+/* Video Container */
 .video-container {
     position: relative;
     width: 100%;
@@ -96,6 +107,7 @@ nav a {
     height: 100%;
     border: none;
 }
+
 /* Loading Screen */
 .loading-screen {
     position: fixed;
@@ -111,7 +123,7 @@ nav a {
     z-index: 9999; /* Ensure it's on top */
 }
 
-/* Logo */
+/* Loading Screen Logo */
 .logo {
     width: 150px; /* Adjust size as needed */
     margin-bottom: 20px; /* Space between logo and spinner */
@@ -132,6 +144,8 @@ nav a {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .movie-detail {
         flex-direction: column;
@@ -147,5 +161,9 @@ nav a {
 
     .movie-poster img {
         width: 80%;
+    }
+
+    nav ul {
+        margin-left: 10px; /* Adjusted for smaller screens */
     }
 }
