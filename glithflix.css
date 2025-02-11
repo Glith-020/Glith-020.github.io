@@ -24,16 +24,22 @@ nav ul {
     list-style: none;
     display: flex;
     margin-left: auto;
+    padding: 0;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 nav li {
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0;
 }
 
 nav a {
+    display: inline-block;
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
+    padding: 14px 16px;
     transition: color 0.3s ease;
 }
 
@@ -246,4 +252,3 @@ button[disabled]:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
