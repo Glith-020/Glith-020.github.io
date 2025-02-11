@@ -16,26 +16,43 @@ header {
     z-index: 100;
 }
 
+/* Logo */
 .logo {
     width: 100px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    margin-left: auto;
+    padding: 0;
+    margin-left: 20px; /* Moves menu closer to the left */
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 nav li {
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0;
 }
 
 nav a {
+    display: inline-block;
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
+    padding: 14px 16px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
+
 
 nav a:hover {
     color: #09e51f; /* Netflix hover color */
