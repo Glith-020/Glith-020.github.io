@@ -1,4 +1,4 @@
-/* General Styles */
+/* Global Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -18,107 +18,131 @@ header {
     z-index: 100;
 }
 
-/* Logo */
 .logo {
     width: 80px;
 }
 
-/* Navigation Menu */
 nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
+    margin-left: auto;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     padding: 0;
-    margin-left: 10px;
-    white-space: nowrap;
-}
-
-nav li {
-    display: inline-block;
     margin: 0;
 }
 
+nav li {
+    margin-left: 20px;
+}
+
 nav a {
-    display: inline-block;
     text-decoration: none;
     color: #fff;
-    font-size: 0.9rem;
-    padding: 10px 12px;
+    font-size: 1rem;
+    padding: 10px;
     transition: color 0.3s ease;
-    white-space: nowrap;
 }
 
 nav a:hover {
     color: #e50914;
 }
 
-/* Movie Detail Section */
-.movie-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 80px; /* To account for fixed header */
+/* Main Content */
+main {
+    padding-top: 80px; /* To prevent content from hiding under the fixed header */
 }
 
-.movie-poster img {
-    width: 80%;
+/* Series Detail Section */
+.series-detail {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.series-poster img {
+    width: 100%;
     max-width: 300px;
     border-radius: 10px;
 }
 
-.movie-info {
+.series-info {
     margin-top: 20px;
-    text-align: center;
+    max-width: 600px;
 }
 
-.movie-meta {
+.series-meta {
+    color: #b3b3b3;
+    margin: 10px 0;
+}
+
+.series-description {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.series-cast {
+    margin-top: 10px;
     color: #b3b3b3;
 }
 
-.movie-description {
-    margin-top: 10px;
-    font-size: 1em;
-    line-height: 1.4em;
+/* Episode List Section */
+.episode-list {
+    padding: 20px;
 }
 
-.movie-actions {
-    margin-top: 15px;
+.episode-list h2 {
+    margin-bottom: 10px;
 }
 
-/* Play Button */
+.episode-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.episode-list li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.episode-info {
+    flex: 1;
+    text-align: left;
+}
+
 .play-button {
     background-color: #e50914;
     color: #fff;
     border: none;
-    padding: 8px 16px;
-    font-size: 0.9em;
+    padding: 10px 20px;
+    font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .play-button:hover {
     background-color: #f6121d;
 }
 
-/* Movie Cast */
-.movie-cast {
-    margin-top: 15px;
-    color: #b3b3b3;
-}
-
-/* Video Container */
+/* Video Player Section */
 .video-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .video-container iframe {
@@ -146,16 +170,16 @@ nav a:hover {
 }
 
 .loading-screen .logo {
-    width: 120px;
-    margin-bottom: 15px;
+    width: 150px;
+    margin-bottom: 20px;
 }
 
 .spinner {
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #e50914;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #e50914;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     animation: spin 1s linear infinite;
 }
 
@@ -164,19 +188,24 @@ nav a:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Media Queries for Smaller Screens */
-@media (max-width: 768px) {
-    nav a {
-        font-size: 0.8rem;
-        padding: 8px 10px;
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .series-detail {
+        flex-wrap: nowrap;
+        text-align: left;
     }
 
-    .movie-description {
-        font-size: 0.9em;
+    .series-info {
+        margin-left: 20px;
+        margin-top: 0;
+    }
+
+    .episode-list li {
+        flex-wrap: nowrap;
     }
 
     .play-button {
-        padding: 6px 12px;
-        font-size: 0.8em;
+        margin-top: 0;
+        margin-left: 20px;
     }
 }
