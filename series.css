@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #141414;
     color: #fff;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 /* Header */
@@ -28,6 +29,7 @@ nav {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100vw; /* Prevents menu overflow */
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
@@ -44,6 +46,10 @@ nav ul {
     padding: 0;
     margin-left: 20px;
     list-style: none;
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
 
 nav li {
@@ -240,8 +246,16 @@ main {
         max-width: 80%;
     }
 
+    nav {
+        max-width: 100%;
+    }
+
     nav ul {
         margin-left: 10px;
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
     }
 
     nav a {
