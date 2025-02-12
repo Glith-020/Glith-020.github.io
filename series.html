@@ -55,6 +55,13 @@
                     </div>
                     <button class="play-button" onclick="playEpisode('episode1')">Play</button>
                 </li>
+                <li>
+                    <div class="episode-info">
+                        <h3>Episode 2: Episode Title</h3>
+                        <p>Duration: 45m</p>
+                    </div>
+                    <button class="play-button" onclick="playEpisode('episode2')">Play</button>
+                </li>
                 <!-- Repeat for additional episodes -->
             </ul>
         </section>
@@ -79,7 +86,9 @@
             // Set the correct video source based on the episodeId
             if (episodeId === 'episode1') {
                 iframe.src = "https://drive.google.com/file/d/1WwJRuHH3etHXPibb0MZHFG2puhKGxtzs/preview";
-            }
+            }else if (episodeId === 'episode2') {
+            iframe.src = "https://drive.google.com/file/d/1eHOfaDhRShkgOrFxduYroMZJC8VfO6Lx/preview"; // Replace with actual link
+        }
             // Add additional conditions for other episodes
         }
     </script>
