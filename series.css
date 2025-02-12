@@ -18,29 +18,36 @@ header {
     z-index: 100;
 }
 
+/* Logo */
 .logo {
     width: 80px;
 }
 
+/* Navigation Menu */
 nav {
     display: flex;
     align-items: center;
     width: 100%;
     overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+/* Hide scrollbar for Webkit-based browsers */
+nav::-webkit-scrollbar {
+    display: none;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     padding: 0;
-    margin-left: 20px; /* Moves menu closer to the left */
-    white-space: nowrap;
-    overflow-x: auto;
+    margin-left: 20px;
+    list-style: none;
 }
 
 nav li {
-    display: inline-block;
-    margin: 0;
+    flex: 0 0 auto;
 }
 
 nav a {
@@ -50,52 +57,48 @@ nav a {
     font-size: 1rem;
     padding: 14px 16px;
     transition: color 0.3s ease;
-    white-space: nowrap;
 }
 
 nav a:hover {
     color: #e50914; /* Netflix hover color */
 }
+
 /* Main Content */
 main {
-    padding-top: 80px; /* To prevent content from hiding under the fixed header */
+    padding-top: 80px; /* Prevent content from hiding under the fixed header */
 }
 
 /* Series Detail Section */
 .series-detail {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 40px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
 }
 
 .series-poster img {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     border-radius: 10px;
 }
 
 .series-info {
-    margin-top: 20px;
+    margin-left: 40px;
     max-width: 600px;
 }
 
-.series-meta {
+.series-meta,
+.series-cast {
     color: #b3b3b3;
     margin: 10px 0;
 }
 
 .series-description {
-    margin-top: 10px;
-    font-size: 1em;
-    line-height: 1.5em;
-}
-
-.series-cast {
-    margin-top: 10px;
-    color: #b3b3b3;
+    margin-top: 20px;
+    font-size: 1.1em;
+    line-height: 1.6em;
 }
 
 /* Episode List Section */
@@ -203,7 +206,7 @@ main {
     }
 
     .series-info {
-        margin-left: 20px;
+        margin-left: 40px;
         margin-top: 0;
     }
 
@@ -212,10 +215,6 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #1e1e1e;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 5px;
     }
 
     .play-button {
@@ -225,17 +224,27 @@ main {
 }
 
 @media (max-width: 768px) {
+    .series-detail {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .series-info {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .series-poster img {
+        max-width: 80%;
+    }
+
     nav ul {
-        margin-left: 10px; /* Adjusted for smaller screens */
+        margin-left: 10px;
     }
 
     nav a {
         padding: 10px;
-    }
-    nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
     }
 }
