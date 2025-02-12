@@ -232,4 +232,10 @@ main {
     nav a {
         padding: 10px;
     }
+    nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+    }
 }
