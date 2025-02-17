@@ -23,7 +23,9 @@ header {
     width: 100%;
     z-index: 100;
 }
-
+main {
+    padding-top: 80px; /* Prevent content from hiding under the fixed header */
+}
 /* Logo */
 .logo {
     width: 100px;
