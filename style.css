@@ -49,10 +49,10 @@
 }
 
 html, body {
-  background: #0d0d0d;
+  background: #0f1b0f; /* Fallout Terminal Greenish background */
   color: #00ff00;
-  font-size: 1.4em;
   font-family: 'VT323', monospace;
+  font-size: 1.4em;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -141,8 +141,8 @@ nav.site ul li {
 }
 
 .overlay:before {
-  background: linear-gradient(#101010 50%, rgba(16, 16, 16, 0.2) 50%), 
-              linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+  background: linear-gradient(#101810 50%, rgba(16, 24, 16, 0.2) 50%), 
+              linear-gradient(90deg, rgba(0, 255, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.03));
   background-size: 100% 3px, 6px 100%;
   content: "";
   display: block;
@@ -158,7 +158,7 @@ nav.site ul li {
 
 .overlay:after {
   animation: flicker 0.3s infinite;
-  background: rgba(16, 16, 16, 0.2);
+  background: rgba(16, 24, 16, 0.2);
   content: "";
   display: block;
   position: fixed;
@@ -195,7 +195,7 @@ nav.site ul li {
   display: inline-block;
 }
 
-/* Columns and Content */
+/* Content */
 .col {
   float: left;
   padding: 0 20px;
@@ -287,7 +287,7 @@ a.button {
 input[type=submit]:hover,
 a.button:hover {
   background: #00ff00;
-  color: #0d0d0d;
+  color: #0f1b0f;
   opacity: 0.8;
 }
 
