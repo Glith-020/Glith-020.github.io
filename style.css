@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 
-/* Animations */
-@keyframes scroll {
-  0% { height: 0 }
-  100% { height: 100% }
-}
+/* -----------------------------------------
+   CRT Terminal Animations
+----------------------------------------- */
+@keyframes scroll { 0% { height: 0 } 100% { height: 100% } }
 
-@keyframes type {
-  from { width: 0 }
-  to { width: 100% }
-}
+@keyframes type { from { width: 0 } to { width: 100% } }
 
-@keyframes blink {
-  50% { opacity: 0 }
-}
+@keyframes blink { 50% { opacity: 0 } }
 
 @keyframes scan {
   from { top: 0 }
@@ -21,35 +15,18 @@
 }
 
 @keyframes flicker {
-  0% { opacity: 0.15795 }
-  5% { opacity: 0.31511 }
-  10% { opacity: 0.94554 }
-  15% { opacity: 0.2469 }
-  20% { opacity: 0.62031 }
-  25% { opacity: 0.0293 }
-  30% { opacity: 0.00899 }
-  35% { opacity: 0.5344 }
-  40% { opacity: 0.12778 }
-  45% { opacity: 0.52042 }
-  50% { opacity: 0.3823 }
-  55% { opacity: 0.2198 }
-  60% { opacity: 0.9383 }
-  65% { opacity: 0.86615 }
-  70% { opacity: 0.68695 }
-  75% { opacity: 0.55749 }
-  80% { opacity: 0.96984 }
-  85% { opacity: 0.0361 }
-  90% { opacity: 0.24467 }
-  95% { opacity: 0.08351 }
-  100% { opacity: 0.54813 }
+  0% { opacity: 0.15 } 5% { opacity: 0.3 } 10% { opacity: 0.95 }
+  20% { opacity: 0.6 } 35% { opacity: 0.5 } 50% { opacity: 0.38 }
+  60% { opacity: 0.9 } 75% { opacity: 0.55 } 100% { opacity: 0.5 }
 }
 
-* {
-  box-sizing: border-box;
-}
+/* -----------------------------------------
+   Global Reset & Base
+----------------------------------------- */
+* { box-sizing: border-box; }
 
 html, body {
-  background: #0f1b0f; /* Fallout Terminal Greenish background */
+  background: #0f1b0f; /* Fallout terminal CRT background */
   color: #00ff00;
   font-family: 'VT323', monospace;
   font-size: 1.4em;
@@ -66,14 +43,25 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+p {
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 a {
-  color: #fff;
+  color: #00ff00;
   text-decoration: none;
   position: relative;
 }
 
 a:hover {
-  color: red;
+  color: #ff5555;
 }
 
 a:hover::after {
@@ -83,34 +71,14 @@ a:hover::after {
   color: #00ff00;
 }
 
-p {
-  line-height: 100%;
-  margin: 0;
-}
-
-span {
-  animation: blink 1s infinite;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul a:before,
-p a:before {
-  content: ' [ ';
+span.cursor {
+  animation: blink 1s step-end infinite;
   color: #00ff00;
 }
 
-ul a:after,
-p a:after {
-  content: ' ] ';
-  color: #00ff00;
-}
-
-/* Header & Nav */
+/* -----------------------------------------
+   Navigation
+----------------------------------------- */
 header.site {
   margin-bottom: 40px;
   text-transform: uppercase;
@@ -128,10 +96,27 @@ nav.site ul {
 nav.site ul li {
   display: inline-block;
   padding: 0 10px;
-  min-width: 250px;
+  min-width: 200px;
 }
 
-/* Overlay & CRT */
+/* -----------------------------------------
+   Terminal UI Styling
+----------------------------------------- */
+ul a::before,
+p a::before {
+  content: ' [ ';
+  color: #00ff00;
+}
+
+ul a::after,
+p a::after {
+  content: ' ] ';
+  color: #00ff00;
+}
+
+/* -----------------------------------------
+   CRT FX Overlay
+----------------------------------------- */
 .overlay {
   position: absolute;
   width: 1px;
@@ -140,32 +125,25 @@ nav.site ul li {
   left: 0;
 }
 
-.overlay:before {
-  background: linear-gradient(#101810 50%, rgba(16, 24, 16, 0.2) 50%), 
-              linear-gradient(90deg, rgba(0, 255, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.03));
-  background-size: 100% 3px, 6px 100%;
+.overlay::before {
   content: "";
-  display: block;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: overlay;
+  background:
+    linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
+  background-size: 100% 3px, 6px 100%;
 }
 
-.overlay:after {
-  animation: flicker 0.3s infinite;
-  background: rgba(16, 24, 16, 0.2);
+.overlay::after {
   content: "";
-  display: block;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
+  animation: flicker 0.3s infinite;
+  background: rgba(0, 255, 0, 0.03);
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: overlay;
@@ -173,38 +151,31 @@ nav.site ul li {
 
 .scanline {
   animation: scan 10s linear infinite;
-  background: linear-gradient(to bottom, rgba(0, 255, 0, 0) 0%, rgba(0, 255, 0, 0.2) 50%, rgba(0, 255, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0,255,0,0) 0%, rgba(0,255,0,0.15) 50%, rgba(0,255,0,0) 100%);
   height: 20px;
   opacity: 0.05;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   pointer-events: none;
   z-index: 1;
   mix-blend-mode: overlay;
 }
 
-/* Typing Loader */
+/* -----------------------------------------
+   Typing Loader
+----------------------------------------- */
 .typing-loader {
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid #00ff00;
   width: 0;
-  animation: type 2s steps(30, end) forwards, blink 1s step-end infinite;
   display: inline-block;
+  animation: type 2s steps(30, end) forwards, blink 1s step-end infinite;
 }
 
-/* Content */
-.col {
-  float: left;
-  padding: 0 20px;
-}
-
-.col.two {
-  width: auto;
-}
-
+/* -----------------------------------------
+   Content Layout
+----------------------------------------- */
 .wrapper {
   animation: scroll 5s 1;
   margin: 0;
@@ -220,6 +191,15 @@ nav.site ul li {
   margin: auto;
 }
 
+.col {
+  float: left;
+  padding: 0 20px;
+}
+
+.col.two {
+  width: auto;
+}
+
 #logo-v {
   display: block;
   margin: 0 auto;
@@ -233,7 +213,9 @@ img.pip-hero {
   height: auto;
 }
 
-/* Forms */
+/* -----------------------------------------
+   Form Styling
+----------------------------------------- */
 label {
   display: block;
   float: left;
@@ -251,7 +233,7 @@ textarea {
   font-size: 1.2em;
   padding: 8px;
   width: 80%;
-  box-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
 }
 
 textarea {
@@ -264,7 +246,7 @@ textarea:focus,
 input[type=submit]:focus,
 a.button:focus {
   outline: none;
-  border-color: #e50914;
+  border-color: #ff4444;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
@@ -288,32 +270,26 @@ input[type=submit]:hover,
 a.button:hover {
   background: #00ff00;
   color: #0f1b0f;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-.clear {
-  clear: both;
-}
+/* -----------------------------------------
+   Helpers
+----------------------------------------- */
+.clear { clear: both; }
+.clearfix { overflow: auto; zoom: 1; }
+.upper { text-transform: uppercase; }
 
-.clearfix {
-  overflow: auto;
-  zoom: 1;
-}
-
-.upper {
-  text-transform: uppercase;
-}
-
-/* Responsive */
+/* -----------------------------------------
+   Responsive
+----------------------------------------- */
 @media (max-width: 768px) {
   .content {
     padding: 20px;
     width: 100%;
   }
 
-  #logo-v {
-    width: 150px;
-  }
+  #logo-v { width: 150px; }
 
   nav.site ul {
     display: block;
@@ -326,9 +302,7 @@ a.button:hover {
     padding: 10px;
   }
 
-  input[type=text], textarea {
-    width: 100%;
-  }
+  input[type=text], textarea { width: 100%; }
 
   input[type=submit], a.button {
     padding: 10px 40px;
