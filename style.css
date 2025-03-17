@@ -3,26 +3,12 @@
 /* -----------------------------------------
    CRT Terminal Animations
 ----------------------------------------- */
-@keyframes scroll {
-  0% { height: 0; }
-  100% { height: 100%; }
-}
+@keyframes scroll { 0% { height: 0 } 100% { height: 100% } }
+@keyframes type { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { opacity: 0 } }
+@keyframes scan { from { top: 0 } to { top: 100% } }
 
-@keyframes type {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-@keyframes scan {
-  from { top: 0; }
-  to { top: 100%; }
-}
-
-/* Improved CRT Flicker Animation */
+/* Improved CRT Flicker Animation - Light to Dark */
 @keyframes flicker-random {
   0%   { opacity: 1; }
   2%   { opacity: 0.4; }
@@ -54,9 +40,7 @@
 /* -----------------------------------------
    Global Reset & Base
 ----------------------------------------- */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   background: #0f1b0f;
@@ -172,8 +156,9 @@ p a::after {
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: overlay;
-  background: linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
-              linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
+  background:
+    linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
   background-size: 100% 3px, 6px 100%;
 }
 
@@ -331,7 +316,7 @@ a.button:hover {
 }
 
 /* -----------------------------------------
-   Flickering Text Updated
+   Flickering Text
 ----------------------------------------- */
 .flicker-text {
   animation: flicker-random 2s infinite;
@@ -347,68 +332,32 @@ a.button:hover {
 .upper { text-transform: uppercase; }
 
 /* -----------------------------------------
-   Responsive
+   Responsive Design
 ----------------------------------------- */
 @media (max-width: 768px) {
-  .content {
-    padding: 20px;
-    width: 100%;
-  }
-
+  .content { padding: 20px; width: 100%; }
   #logo-v { width: 150px; }
-
-  nav.site ul {
-    display: block;
-    width: 100%;
-  }
-
-  nav.site ul li {
-    display: block;
-    width: 100%;
-    padding: 10px;
-  }
-
-  input[type=text], textarea {
-    width: 100%;
-  }
-
-  input[type=submit], a.button {
-    padding: 10px 40px;
-  }
-
-  img.pip-hero {
-    float: none;
-    display: block;
-    margin: 10px auto;
-    max-width: 100%;
-    width: auto;
-  }
+  nav.site ul { display: block; width: 100%; }
+  nav.site ul li { display: block; width: 100%; padding: 10px; }
+  input[type=text], textarea { width: 100%; }
+  input[type=submit], a.button { padding: 10px 40px; }
+  img.pip-hero { float: none; display: block; margin: 10px auto; width: auto; }
 }
 
 /* -----------------------------------------
-   Terminal Scrollbar Styling
+   Scrollbar Styling
 ----------------------------------------- */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f1b0f;
-}
-
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0f1b0f; }
 ::-webkit-scrollbar-thumb {
   background: #00ff00;
   border-radius: 10px;
   box-shadow: 0 0 5px #00ff00;
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc00;
-}
+::-webkit-scrollbar-thumb:hover { background: #00cc00; }
 
 /* -----------------------------------------
-   Focus Styles for Keyboard Users
+   Focus Styles
 ----------------------------------------- */
 a:focus-visible,
 button:focus-visible,
