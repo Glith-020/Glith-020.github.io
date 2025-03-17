@@ -314,7 +314,7 @@ a.button:hover {
   position: relative;
   z-index: 3;
    width: 100vw;
-   height: 100vh;
+   height: 100%;
 }
 
 /* -----------------------------------------
