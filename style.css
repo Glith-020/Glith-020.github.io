@@ -35,6 +35,7 @@ html, body {
   padding: 0;
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -326,4 +327,44 @@ a.button:hover {
     max-width: 100%;
     width: auto;
   }
+}
+
+/* -----------------------------------------
+   Terminal Scrollbar Styling (new) 
+----------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1b0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
+
+/* -----------------------------------------
+   Focus Styles for Keyboard Users (new)
+----------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px dashed #00ff00;
+  outline-offset: 3px;
+  box-shadow: 0 0 8px #00ff00;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  border-color: #00ff00;
+  background-color: rgba(0, 255, 0, 0.05);
 }
