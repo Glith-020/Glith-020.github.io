@@ -1,72 +1,61 @@
-<!DOCTYPE html> 	
- 
-<title> Terminal Website</title>
-<div class="overlay"></div>
-	<div class="scanline"></div>
-<div class="wrapper">	
-<div class="content clearfix">
-	<link rel="stylesheet" href="style.css">
-		
-		<header class="site clearfix">
-		<div class="col one">
-			
-		</div>
-			<div class="col two">
-				<h4>Glith_020 <br /> <b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-				<p>----------------------------------------</p>
-				<p>E.C.C. Terminal v 1.0.0</p>
-				<p>&copy; RichCo, 2024 </p>
-				<p>- Logs -</p>
-			</div>
-		</header>
-		
-		<nav class="site clear">
-			<ul>
-				<li><a href="Prolouge.html" title="Prolouge">Log 12/07/2296</a></li>
-					<p>The Prolouge </p><br />
-				
-				<li><a href="start.html"  title="The Start">Log 06/02/2296</a></li>
-				
-				<p>The Start. </p><br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs - E.C.C. Terminal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+<body>
+  <div class="terminal-window wrapper">
 
-				        <li><a href="FirstOperation.html" title="Race Test">Log [REDACTED]</a></li>
-					<p>The Race Test. </p><br />
-				
-				        <li><a href="IHaveAGunNextToMyHead.html" title="The Gun Test">Log [REDACTED]</a></li>
-					<p>The Gun Test. </p><br />
+    <!-- CRT Overlay & Scanline -->
+    <div class="overlay"></div>
+    <div class="scanline"></div>
 
-				        <li><a href="ECCAutomation.html" title="The End">EAP</a></li>
-					<p>The E.C.C. Automation Program </p><br />
+    <!-- Terminal Window Container -->
+    <div class="content clearfix">
 
-					<li><a href="Richmas.html" title="The End">25/12/2296</a></li>
-					<p>Richmas </p><br />
-				
+      <!-- Header -->
+      <header class="site clearfix">
+        <div class="col one">
+          <!-- Optional logo here -->
+          <!-- <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v"> -->
+        </div>
+        <div class="col two">
+          <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+          <p>----------------------------------------</p>
+          <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
+          <p class="flicker-text">&copy; RichCo, 2024</p>
+          <p class="flicker-text">- Logs -</p>
+        </div>
+      </header>
 
-				
-		
-				
-		
-			</ul>
-		</nav>
-				
-		
+      <!-- Navigation / Logs Section -->
+      <nav class="site clear">
+        <ul>
+          <li><a href="Prolouge.html" title="Prologue">Log 12/07/2296</a></li>
+          <p>The Prologue</p><br>
 
-		<p class="clear"><br /></p>
+          <li><a href="start.html" title="The Start">Log 06/02/2296</a></li>
+          <p>The Start.</p><br>
 
-		
-		
-	</div>
-</div>
+          <li><a href="FirstOperation.html" title="Race Test">Log [REDACTED]</a></li>
+          <p>The Race Test.</p><br>
 
+          <li><a href="IHaveAGunNextToMyHead.html" title="The Gun Test">Log [REDACTED]</a></li>
+          <p>The Gun Test.</p><br>
 
+          <li><a href="ECCAutomation.html" title="EAP">EAP</a></li>
+          <p>The E.C.C. Automation Program.</p><br>
 
-<script> 
-	
-	
-	$(document).ready(function(){
-  $('#title').focus();
-    $('#text').autosize();
-});
+          <li><a href="Richmas.html" title="Richmas">25/12/2296</a></li>
+          <p>Richmas.</p><br>
+        </ul>
+      </nav>
 
-</script>
-
+      <p class="clear"><br></p>
+    </div>
+  </div>
+</body>
+</html>
