@@ -310,12 +310,16 @@ a.button:hover {
   padding: 20px;
   background: rgba(0, 255, 0, 0.05);
   box-shadow: 0 0 10px rgba(0,255,0,0.3);
-  margin: 20px 0;
   position: relative;
   z-index: 3;
-   width: 100vw;
-   height: 100%;
+  width: 100vw;
+  height: 100vh;  /* <- Full height of the viewport */
+  margin: 0;      /* Remove margin so it fills full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
 
 /* -----------------------------------------
    Flickering Text
