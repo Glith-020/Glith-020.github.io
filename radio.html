@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,15 +72,13 @@
     }
 
     audio {
-      width: 100%;
-      margin-top: 10px;
-      filter: brightness(80%) contrast(120%);
+      display: none; /* Hide the default audio controls */
     }
   </style>
 </head>
+
 <body>
   <div class="terminal-window wrapper">
-
     <div class="overlay"></div>
     <div class="scanline"></div>
 
@@ -98,7 +97,7 @@
       </header>
 
       <section class="player-container">
-        <audio id="audio-player" controls autoplay>
+        <audio id="audio-player">
           <source src="" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
@@ -120,6 +119,58 @@
   </div>
 
   <!-- Scripts -->
-  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audioPlayer = document.getElementById("audio-player");
+      const playBtn = document.getElementById("play-btn");
+      const stopBtn = document.getElementById("stop-btn");
+      const volumeSlider = document.getElementById("volume-slider");
+      const stationSelect = document.getElementById("station-select");
+
+      const stations = {
+        "Radio CHEM": ["Heartaches_By_The_Number_128kbps.mp3", "Fly_Me_To_The_Moon_2008_Remastered_128kbps.mp3", "Mr._Sandman_-_The_Chordettes_128kbps.mp3", "Ain_t_That_A_Kick_In_The_Head_Remastered_1997_128kbps.mp3", "My_Way_2008_Remastered_128kbps.mp3", "Blue_Moon_1999_Remastered_128kbps.mp3", "Way_Back_Home_128kbps.mp3"],
+        "Enclave Radio": ["stars_and_stripes_forever_64kb.mp3", "dixie.mp3", "Hymn.mp3", "wash.mp3", "yan.mp3"]
+        // Add more stations and their songs as needed
+      };
+
+      let currentStation = null;
+      let currentSongIndex = 0;
+
+      // Play button click event
+      playBtn.addEventListener("click", function () {
+        if (!currentStation) {
+          const selectedStation = stationSelect.value;
+          currentStation = selectedStation;
+          playRandomSong();
+        } else {
+          audioPlayer.play();
+        }
+      });
+
+      // Stop button click event
+      stopBtn.addEventListener("click", function () {
+        audioPlayer.pause();
+      });
+
+      // Volume slider change event
+      volumeSlider.addEventListener("input", function () {
+        audioPlayer.volume = volumeSlider.value / 100;
+      });
+
+      // Listen for the ended event to play the next song
+      audioPlayer.addEventListener("ended", function () {
+        playRandomSong();
+      });
+
+      function playRandomSong() {
+        const songs = stations[currentStation];
+        const randomSongIndex = Math.floor(Math.random() * songs.length);
+        const randomSong = songs[randomSongIndex];
+        audioPlayer.src = randomSong;
+        audioPlayer.play();
+      }
+    });
+  </script>
 </body>
+
 </html>
