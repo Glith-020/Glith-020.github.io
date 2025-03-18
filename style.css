@@ -9,12 +9,30 @@
 @keyframes scan { from { top: 0 } to { top: 100% } }
 
 @keyframes flicker-random {
-  0% { opacity: 1; } 2% { opacity: 0.4; } 4% { opacity: 1; } 6% { opacity: 0.2; }
-  8% { opacity: 1; } 10% { opacity: 0.6; } 12% { opacity: 1; } 16% { opacity: 0.3; }
-  18% { opacity: 1; } 20% { opacity: 0.5; } 25% { opacity: 1; } 30% { opacity: 0.6; }
-  35% { opacity: 1; } 40% { opacity: 0.2; } 42% { opacity: 1; } 50% { opacity: 0.4; }
-  52% { opacity: 1; } 60% { opacity: 0.3; } 65% { opacity: 1; } 75% { opacity: 0.5; }
-  80% { opacity: 1; } 85% { opacity: 0.4; } 90% { opacity: 1; } 95% { opacity: 0.7; }
+  0% { opacity: 1; }
+  2% { opacity: 0.4; }
+  4% { opacity: 1; }
+  6% { opacity: 0.2; }
+  8% { opacity: 1; }
+  10% { opacity: 0.6; }
+  12% { opacity: 1; }
+  16% { opacity: 0.3; }
+  18% { opacity: 1; }
+  20% { opacity: 0.5; }
+  25% { opacity: 1; }
+  30% { opacity: 0.6; }
+  35% { opacity: 1; }
+  40% { opacity: 0.2; }
+  42% { opacity: 1; }
+  50% { opacity: 0.4; }
+  52% { opacity: 1; }
+  60% { opacity: 0.3; }
+  65% { opacity: 1; }
+  75% { opacity: 0.5; }
+  80% { opacity: 1; }
+  85% { opacity: 0.4; }
+  90% { opacity: 1; }
+  95% { opacity: 0.7; }
   100% { opacity: 1; }
 }
 
@@ -37,11 +55,7 @@ html, body {
   width: 100vw;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+img { max-width: 100%; height: auto; display: block; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
@@ -49,25 +63,18 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-p {
-  line-height: 1.2;
-  margin: 0 0 10px;
-}
+p { line-height: 1.2; margin: 0 0 10px; }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+ul { list-style: none; margin: 0; padding: 0; }
 
 a {
   color: #00ff00;
   text-decoration: none;
   position: relative;
 }
-a:hover {
-  color: #ff5555;
-}
+
+a:hover { color: #ff5555; }
+
 a:hover::after {
   content: '_';
   animation: blink 1s step-end infinite;
@@ -75,10 +82,7 @@ a:hover::after {
   color: #00ff00;
 }
 
-span.cursor {
-  animation: blink 1s step-end infinite;
-  color: #00ff00;
-}
+span.cursor { animation: blink 1s step-end infinite; color: #00ff00; }
 
 /* -----------------------------------------
    Navigation
@@ -92,7 +96,9 @@ nav.site {
   margin-bottom: 40px;
   width: 100%;
 }
+
 nav.site ul { padding: 0; }
+
 nav.site ul li {
   display: inline-block;
   padding: 0 10px;
@@ -102,51 +108,71 @@ nav.site ul li {
 /* -----------------------------------------
    Terminal UI Styling
 ----------------------------------------- */
-ul a::before,
-p a::before {
+ul a::before, p a::before {
   content: ' [ ';
   color: #00ff00;
 }
-ul a::after,
-p a::after {
+ul a::after, p a::after {
   content: ' ] ';
   color: #00ff00;
 }
 
 /* -----------------------------------------
-   CRT FX Overlay
+   Terminal Window Box
+----------------------------------------- */
+.terminal-window {
+  border: 2px solid #00ff00;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0,255,0,0.3);
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* -----------------------------------------
+   CRT FX Overlay (Scoped inside terminal-window)
 ----------------------------------------- */
 .overlay {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
 }
+
 .overlay::before {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 2;
   mix-blend-mode: overlay;
   background:
     linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
     linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
   background-size: 100% 3px, 6px 100%;
 }
+
 .overlay::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  animation: flicker-random 1.2s infinite steps(1, end);
+  animation: flicker-random 1.2s infinite;
+  animation-timing-function: steps(1, end);
   animation-delay: 0.1s;
   background: rgba(0, 255, 0, 0.03);
-  pointer-events: none;
-  z-index: 2;
   mix-blend-mode: overlay;
 }
 
+/* -----------------------------------------
+   Scanline FX (Scoped inside terminal-window)
+----------------------------------------- */
 .scanline {
   animation: scan 10s linear infinite;
   background: linear-gradient(to bottom, rgba(0,255,0,0) 0%, rgba(0,255,0,0.15) 50%, rgba(0,255,0,0) 100%);
@@ -191,10 +217,8 @@ p a::after {
   overflow-y: auto;
 }
 
-.col {
-  float: left;
-  padding: 0 20px;
-}
+.col { float: left; padding: 0 20px; }
+
 .col.two { width: auto; }
 
 #logo-v {
@@ -224,8 +248,7 @@ label {
   clear: left;
 }
 
-input[type=text],
-textarea {
+input[type=text], textarea {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -250,8 +273,7 @@ a.button:focus {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
-input[type=submit],
-a.button {
+input[type=submit], a.button {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -266,36 +288,18 @@ a.button {
   transition: all 0.3s ease;
 }
 
-input[type=submit]:hover,
-a.button:hover {
+input[type=submit]:hover, a.button:hover {
   background: #00ff00;
   color: #0f1b0f;
   opacity: 0.9;
 }
 
 /* -----------------------------------------
-   Terminal Window Box
------------------------------------------ */
-.terminal-window {
-  border: 2px solid #00ff00;
-  padding: 20px;
-  background: rgba(0, 255, 0, 0.05);
-  box-shadow: 0 0 10px rgba(0,255,0,0.3);
-  position: relative;
-  z-index: 3;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* -----------------------------------------
    Flickering Text
 ----------------------------------------- */
 .flicker-text {
-  animation: flicker-random 2s infinite steps(1, end);
+  animation: flicker-random 2s infinite;
+  animation-timing-function: steps(1, end);
   animation-delay: 0.2s;
 }
 
@@ -342,6 +346,7 @@ textarea:focus-visible {
   outline-offset: 3px;
   box-shadow: 0 0 8px #00ff00;
 }
+
 input:focus-visible,
 textarea:focus-visible {
   border-color: #00ff00;
