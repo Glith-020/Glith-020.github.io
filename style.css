@@ -362,3 +362,8 @@ textarea:focus-visible {
   border-color: #00ff00;
   background-color: rgba(0, 255, 0, 0.05);
 }
+
+.overlay,
+.scanline {
+  border-radius: inherit;
+}
