@@ -3,12 +3,28 @@
 /* -----------------------------------------
    CRT Terminal Animations
 ----------------------------------------- */
-@keyframes scroll { 0% { height: 0 } 100% { height: 100% } }
-@keyframes type { from { width: 0 } to { width: 100% } }
-@keyframes blink { 50% { opacity: 0 } }
-@keyframes scan { from { top: 0 } to { top: 100% } }
+
+@keyframes scroll { 
+  0% { height: 0; } 
+  100% { height: 100%; }
+}
+
+@keyframes type { 
+  from { width: 0; } 
+  to { width: 100%; } 
+}
+
+@keyframes blink { 
+  50% { opacity: 0; } 
+}
+
+@keyframes scan { 
+  from { top: 0; } 
+  to { top: 100%; } 
+}
 
 /* Improved CRT Flicker Animation - Light to Dark */
+
 @keyframes flicker-random {
   0%   { opacity: 1; }
   2%   { opacity: 0.4; }
@@ -40,7 +56,10 @@
 /* -----------------------------------------
    Global Reset & Base
 ----------------------------------------- */
-* { box-sizing: border-box; }
+
+* { 
+  box-sizing: border-box; 
+}
 
 html, body {
   background: #0f1b0f;
@@ -54,8 +73,6 @@ html, body {
   scroll-behavior: smooth;
   height: 100vh;
   width: 100vw;
-   
-   
 }
 
 img {
@@ -106,6 +123,7 @@ span.cursor {
 /* -----------------------------------------
    Navigation
 ----------------------------------------- */
+
 header.site {
   margin-bottom: 40px;
   text-transform: uppercase;
@@ -129,14 +147,13 @@ nav.site ul li {
 /* -----------------------------------------
    Terminal UI Styling
 ----------------------------------------- */
-ul a::before,
-p a::before {
+
+ul a::before, p a::before {
   content: ' [ ';
   color: #00ff00;
 }
 
-ul a::after,
-p a::after {
+ul a::after, p a::after {
   content: ' ] ';
   color: #00ff00;
 }
@@ -144,6 +161,7 @@ p a::after {
 /* -----------------------------------------
    CRT FX Overlay
 ----------------------------------------- */
+
 .overlay {
   position: absolute;
   width: 1px;
@@ -193,6 +211,7 @@ p a::after {
 /* -----------------------------------------
    Typing Loader
 ----------------------------------------- */
+
 .typing-loader {
   overflow: hidden;
   white-space: nowrap;
@@ -205,11 +224,13 @@ p a::after {
 /* -----------------------------------------
    Content Layout
 ----------------------------------------- */
+
 .wrapper {
   animation: scroll 5s 1;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100vh;    /* Limit wrapper to viewport height */
 }
 
 .content {
@@ -220,7 +241,6 @@ p a::after {
   flex: 1;
   width: 100%;
   overflow-y: auto;
-   
 }
 
 .col {
@@ -251,6 +271,7 @@ img.pip-hero {
 /* -----------------------------------------
    Form Styling
 ----------------------------------------- */
+
 label {
   display: block;
   float: left;
@@ -259,8 +280,7 @@ label {
   clear: left;
 }
 
-input[type=text],
-textarea {
+input[type=text], textarea {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -276,17 +296,13 @@ textarea {
   margin-bottom: 20px;
 }
 
-input[type=text]:focus,
-textarea:focus,
-input[type=submit]:focus,
-a.button:focus {
+input[type=text]:focus, textarea:focus, input[type=submit]:focus, a.button:focus {
   outline: none;
   border-color: #ff4444;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
-input[type=submit],
-a.button {
+input[type=submit], a.button {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -301,8 +317,7 @@ a.button {
   transition: all 0.3s ease;
 }
 
-input[type=submit]:hover,
-a.button:hover {
+input[type=submit]:hover, a.button:hover {
   background: #00ff00;
   color: #0f1b0f;
   opacity: 0.9;
@@ -311,6 +326,7 @@ a.button:hover {
 /* -----------------------------------------
    Terminal Window Box
 ----------------------------------------- */
+
 .terminal-window {
   border: 2px solid #00ff00;
   padding: 20px;
@@ -319,17 +335,19 @@ a.button:hover {
   position: relative;
   z-index: 3;
   width: 100vw;
-  height: 100vh;  /* <- Full height of the viewport */
+  height: 100vh;  /* Full height of the viewport */
   margin: 0;      /* Remove margin so it fills full screen */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-y: auto; /* Allow scrolling inside the terminal */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
 
 /* -----------------------------------------
    Flickering Text
 ----------------------------------------- */
+
 .flicker-text {
   animation: flicker-random 2s infinite;
   animation-timing-function: steps(1, end);
@@ -339,13 +357,17 @@ a.button:hover {
 /* -----------------------------------------
    Helpers
 ----------------------------------------- */
+
 .clear { clear: both; }
+
 .clearfix { overflow: auto; zoom: 1; }
+
 .upper { text-transform: uppercase; }
 
 /* -----------------------------------------
    Responsive Design
 ----------------------------------------- */
+
 @media (max-width: 768px) {
   .content { padding: 20px; width: 100%; }
   #logo-v { width: 150px; }
@@ -359,6 +381,7 @@ a.button:hover {
 /* -----------------------------------------
    Scrollbar Styling
 ----------------------------------------- */
+
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #0f1b0f; }
 ::-webkit-scrollbar-thumb {
@@ -368,9 +391,12 @@ a.button:hover {
 }
 ::-webkit-scrollbar-thumb:hover { background: #00cc00; }
 
-/* -----------------------------------------
+/* -
+-
+---------------------------------------
    Focus Styles
 ----------------------------------------- */
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
