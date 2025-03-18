@@ -387,13 +387,10 @@ input[type=submit]:hover, a.button:hover {
 ::-webkit-scrollbar-thumb {
   background: #00ff00;
   border-radius: 10px;
-  box-shadow: 0 0 5px #00ff00;
 }
 ::-webkit-scrollbar-thumb:hover { background: #00cc00; }
 
-/* -
--
----------------------------------------
+/*------------------------------------------
    Focus Styles
 ----------------------------------------- */
 
