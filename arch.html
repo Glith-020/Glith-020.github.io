@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archives - E.C.C. Terminal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives - E.C.C. Terminal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <style>
+    .Richville {
+      max-width: 95%;
+    }
+  </style>
 </head>
-	<style>
-		.Richville{
-			max-width: 95%;
-	</style>
 <body>
+  <div class="terminal-window wrapper">
+
+    <!-- CRT Overlay & Scanline -->
     <div class="overlay"></div>
     <div class="scanline"></div>
-    <div class="wrapper">  
-        <div class="content clearfix">
-            <header class="site clearfix">
-                <div class="col one">
-                    
-                </div>
-                <div class="col two">
-                    <h4>Glith_020 <br /> <b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-                    <p>----------------------------------------</p>
-                    <p>E.C.C. Terminal v 1.0.0</p>
-                    <p>&copy; RichCo, 2024 </p>
-                    <p>- Archives -</p>
-                </div>
-            </header>
-            
-            <nav class="site clear">
-                <ul>
-                    <li><h2>The First Head Researcher Salamanca</h2></li>
-                    <p>Salamanca didnt do much, I quote President Richardson "Salamanca didnt do shit".</p><br />
-                    <img src="Salamanca.png" alt="Salamanca"><br />
-			
-                    <li><h2>EXPERIENCED RESEARCHER CR0SSBEAN</h2></li>
-                    <p>We dont know much about him, all we know is that he made the FEV experiment. He was on duty while the Salamanca times were ongoing.</p><br />
-                    <img src="Cr0ss.png" alt="Footage of Cr0ssbean on the FEV experiment."><br />
 
-		    <li><h2>Head Researcher Glith</h2></li>
-                    <p>Im sure that you are not here to read about me. All im going to say is that I am an ex Head Researcher. If you want to hear more about me, check the LOGS.</p><br />
-                    <img src="Zrzut ekranu 2024-04-15 154904.png" alt="Me."><br />
+    <!-- Terminal Window Container -->
+    <div class="content clearfix">
 
-		    <li><h2>Assistant Head Researcher BenefactorsBlade</h2></li>
-                    <p>One of the greatest Co-workers. He was my Assistant. He really knew what to say. To be honest, I miss him and the old times. He left E.C.C. on 02.08.2024.</p><br />
-                    <img src="bene.png" alt="The Great Bene."><br />
-
-		    <li><h2>OCS</h2></li>
-                    <p>The game on roblox where I met the Enclave. I do miss the old days but I know that Richard will secure us a great future.</p><br />
-                    <img src="Zrzut ekranu 2024-04-14 162744.png" alt="OCS"><br />
-
-		    <li><h2>Richville</h2></li>
-                    <p>Basically a roblox fallout game that I was working on.</p><br />
-                    <img src="Zrzut ekranu 2024-10-16 100631.png" alt="Richville" class="Richville"><br />
-                </ul>
-            </nav>
-            <p class="clear"><br /></p>
+      <!-- Header -->
+      <header class="site clearfix">
+        <div class="col one">
+          <!-- Optional logo can go here -->
+          <!-- <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v"> -->
         </div>
+        <div class="col two">
+          <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+          <p>----------------------------------------</p>
+          <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
+          <p class="flicker-text">&copy; RichCo, 2024</p>
+          <p class="flicker-text">- Archives -</p>
+        </div>
+      </header>
+
+      <!-- Archive Content Section -->
+      <nav class="site clear">
+        <ul>
+          <li><h2 class="flicker-text">The First Head Researcher Salamanca</h2></li>
+          <p>Salamanca didn't do much. I quote President Richardson: "Salamanca didn’t do shit".</p><br>
+          <img src="Salamanca.png" alt="Salamanca"><br>
+
+          <li><h2 class="flicker-text">EXPERIENCED RESEARCHER CR0SSBEAN</h2></li>
+          <p>We don’t know much about him. All we know is that he made the FEV experiment. He was on duty during the Salamanca times.</p><br>
+          <img src="Cr0ss.png" alt="Footage of Cr0ssbean on the FEV experiment."><br>
+
+          <li><h2 class="flicker-text">Head Researcher Glith</h2></li>
+          <p>I'm sure you're not here to read about me. All I’ll say is I am an ex Head Researcher. If you want more, check the LOGS.</p><br>
+          <img src="Zrzut ekranu 2024-04-15 154904.png" alt="Me."><br>
+
+          <li><h2 class="flicker-text">Assistant Head Researcher BenefactorsBlade</h2></li>
+          <p>One of the greatest co-workers. He was my Assistant. He really knew what to say. I miss him and the old times. He left E.C.C. on 02.08.2024.</p><br>
+          <img src="bene.png" alt="The Great Bene."><br>
+
+          <li><h2 class="flicker-text">OCS</h2></li>
+          <p>The game on Roblox where I met the Enclave. I do miss the old days, but I know Richard will secure us a great future.</p><br>
+          <img src="Zrzut ekranu 2024-04-14 162744.png" alt="OCS"><br>
+
+          <li><h2 class="flicker-text">Richville</h2></li>
+          <p>Basically a Roblox Fallout game I was working on.</p><br>
+          <img src="Zrzut ekranu 2024-10-16 100631.png" alt="Richville" class="Richville"><br>
+        </ul>
+      </nav>
+
+      <p class="clear"><br></p>
     </div>
+  </div>
 </body>
 </html>
