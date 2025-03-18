@@ -329,20 +329,26 @@ input[type=submit]:hover, a.button:hover {
 
 .terminal-window {
   border: 2px solid #00ff00;
-  padding: 20px;
-  background: rgba(0, 255, 0, 0.05);
-  box-shadow: 0 0 10px rgba(0,255,0,0.3);
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #101c10, #0a120a); /* dark terminal glass effect */
+  box-shadow:
+    0 0 15px rgba(0, 255, 0, 0.3),
+    0 0 30px rgba(0, 255, 0, 0.15),
+    inset 0 0 10px rgba(0, 255, 0, 0.1);
   position: relative;
   z-index: 3;
-  width: 100vw;
-  height: 100vh;  /* Full height of the viewport */
-  margin: 0;      /* Remove margin so it fills full screen */
+  width: 95vw;
+  height: 95vh;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto; /* Allow scrolling inside the terminal */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'VT323', monospace;
+  color: #00ff00;
 }
+
 
 /* -----------------------------------------
    Flickering Text
