@@ -3,63 +3,25 @@
 /* -----------------------------------------
    CRT Terminal Animations
 ----------------------------------------- */
-
-@keyframes scroll { 
-  0% { height: 0; } 
-  100% { height: 100%; }
-}
-
-@keyframes type { 
-  from { width: 0; } 
-  to { width: 100%; } 
-}
-
-@keyframes blink { 
-  50% { opacity: 0; } 
-}
-
-@keyframes scan { 
-  from { top: 0; } 
-  to { top: 100%; } 
-}
-
-/* Improved CRT Flicker Animation - Light to Dark */
+@keyframes scroll { 0% { height: 0 } 100% { height: 100% } }
+@keyframes type { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { opacity: 0 } }
+@keyframes scan { from { top: 0 } to { top: 100% } }
 
 @keyframes flicker-random {
-  0%   { opacity: 1; }
-  2%   { opacity: 0.4; }
-  4%   { opacity: 1; }
-  6%   { opacity: 0.2; }
-  8%   { opacity: 1; }
-  10%  { opacity: 0.6; }
-  12%  { opacity: 1; }
-  16%  { opacity: 0.3; }
-  18%  { opacity: 1; }
-  20%  { opacity: 0.5; }
-  25%  { opacity: 1; }
-  30%  { opacity: 0.6; }
-  35%  { opacity: 1; }
-  40%  { opacity: 0.2; }
-  42%  { opacity: 1; }
-  50%  { opacity: 0.4; }
-  52%  { opacity: 1; }
-  60%  { opacity: 0.3; }
-  65%  { opacity: 1; }
-  75%  { opacity: 0.5; }
-  80%  { opacity: 1; }
-  85%  { opacity: 0.4; }
-  90%  { opacity: 1; }
-  95%  { opacity: 0.7; }
+  0% { opacity: 1; } 2% { opacity: 0.4; } 4% { opacity: 1; } 6% { opacity: 0.2; }
+  8% { opacity: 1; } 10% { opacity: 0.6; } 12% { opacity: 1; } 16% { opacity: 0.3; }
+  18% { opacity: 1; } 20% { opacity: 0.5; } 25% { opacity: 1; } 30% { opacity: 0.6; }
+  35% { opacity: 1; } 40% { opacity: 0.2; } 42% { opacity: 1; } 50% { opacity: 0.4; }
+  52% { opacity: 1; } 60% { opacity: 0.3; } 65% { opacity: 1; } 75% { opacity: 0.5; }
+  80% { opacity: 1; } 85% { opacity: 0.4; } 90% { opacity: 1; } 95% { opacity: 0.7; }
   100% { opacity: 1; }
 }
 
 /* -----------------------------------------
    Global Reset & Base
 ----------------------------------------- */
-
-* { 
-  box-sizing: border-box; 
-}
+* { box-sizing: border-box; }
 
 html, body {
   background: #0f1b0f;
@@ -103,11 +65,9 @@ a {
   text-decoration: none;
   position: relative;
 }
-
 a:hover {
   color: #ff5555;
 }
-
 a:hover::after {
   content: '_';
   animation: blink 1s step-end infinite;
@@ -123,7 +83,6 @@ span.cursor {
 /* -----------------------------------------
    Navigation
 ----------------------------------------- */
-
 header.site {
   margin-bottom: 40px;
   text-transform: uppercase;
@@ -133,11 +92,7 @@ nav.site {
   margin-bottom: 40px;
   width: 100%;
 }
-
-nav.site ul {
-  padding: 0;
-}
-
+nav.site ul { padding: 0; }
 nav.site ul li {
   display: inline-block;
   padding: 0 10px;
@@ -147,13 +102,13 @@ nav.site ul li {
 /* -----------------------------------------
    Terminal UI Styling
 ----------------------------------------- */
-
-ul a::before, p a::before {
+ul a::before,
+p a::before {
   content: ' [ ';
   color: #00ff00;
 }
-
-ul a::after, p a::after {
+ul a::after,
+p a::after {
   content: ' ] ';
   color: #00ff00;
 }
@@ -161,7 +116,6 @@ ul a::after, p a::after {
 /* -----------------------------------------
    CRT FX Overlay
 ----------------------------------------- */
-
 .overlay {
   position: absolute;
   width: 1px;
@@ -169,7 +123,6 @@ ul a::after, p a::after {
   top: 0;
   left: 0;
 }
-
 .overlay::before {
   content: "";
   position: fixed;
@@ -182,13 +135,11 @@ ul a::after, p a::after {
     linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
   background-size: 100% 3px, 6px 100%;
 }
-
 .overlay::after {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  animation: flicker-random 1.2s infinite;
-  animation-timing-function: steps(1, end);
+  animation: flicker-random 1.2s infinite steps(1, end);
   animation-delay: 0.1s;
   background: rgba(0, 255, 0, 0.03);
   pointer-events: none;
@@ -211,7 +162,6 @@ ul a::after, p a::after {
 /* -----------------------------------------
    Typing Loader
 ----------------------------------------- */
-
 .typing-loader {
   overflow: hidden;
   white-space: nowrap;
@@ -224,13 +174,11 @@ ul a::after, p a::after {
 /* -----------------------------------------
    Content Layout
 ----------------------------------------- */
-
 .wrapper {
   animation: scroll 5s 1;
   margin: 0;
   padding: 0;
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100vh;    /* Limit wrapper to viewport height */
+  overflow: hidden;
 }
 
 .content {
@@ -247,10 +195,7 @@ ul a::after, p a::after {
   float: left;
   padding: 0 20px;
 }
-
-.col.two {
-  width: auto;
-}
+.col.two { width: auto; }
 
 #logo-v {
   display: block;
@@ -271,7 +216,6 @@ img.pip-hero {
 /* -----------------------------------------
    Form Styling
 ----------------------------------------- */
-
 label {
   display: block;
   float: left;
@@ -280,7 +224,8 @@ label {
   clear: left;
 }
 
-input[type=text], textarea {
+input[type=text],
+textarea {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -296,13 +241,17 @@ textarea {
   margin-bottom: 20px;
 }
 
-input[type=text]:focus, textarea:focus, input[type=submit]:focus, a.button:focus {
+input[type=text]:focus,
+textarea:focus,
+input[type=submit]:focus,
+a.button:focus {
   outline: none;
   border-color: #ff4444;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
-input[type=submit], a.button {
+input[type=submit],
+a.button {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -317,7 +266,8 @@ input[type=submit], a.button {
   transition: all 0.3s ease;
 }
 
-input[type=submit]:hover, a.button:hover {
+input[type=submit]:hover,
+a.button:hover {
   background: #00ff00;
   color: #0f1b0f;
   opacity: 0.9;
@@ -326,58 +276,39 @@ input[type=submit]:hover, a.button:hover {
 /* -----------------------------------------
    Terminal Window Box
 ----------------------------------------- */
-
 .terminal-window {
-  border: 4px solid #00ff00;
-  background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.08), rgba(0, 0, 0, 0.95));
-  box-shadow:
-    0 0 20px rgba(0, 255, 0, 0.3),
-    inset 0 0 60px rgba(0, 255, 0, 0.05),
-    0 10px 30px rgba(0, 0, 0, 0.8); /* Outer monitor shadow */
-  border-radius: 12px;
+  border: 2px solid #00ff00;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0,255,0,0.3);
   position: relative;
   z-index: 3;
-  width: 90vw;
-  max-width: 900px;
-  height: 85vh;
-  margin: 30px auto;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 30px;
-  font-family: 'VT323', monospace;
-  color: #00ff00;
-  text-shadow: 0 0 3px rgba(0, 255, 0, 0.7);
 }
-
-
 
 /* -----------------------------------------
    Flickering Text
 ----------------------------------------- */
-
 .flicker-text {
-  animation: flicker-random 2s infinite;
-  animation-timing-function: steps(1, end);
+  animation: flicker-random 2s infinite steps(1, end);
   animation-delay: 0.2s;
 }
 
 /* -----------------------------------------
    Helpers
 ----------------------------------------- */
-
 .clear { clear: both; }
-
 .clearfix { overflow: auto; zoom: 1; }
-
 .upper { text-transform: uppercase; }
 
 /* -----------------------------------------
    Responsive Design
 ----------------------------------------- */
-
 @media (max-width: 768px) {
   .content { padding: 20px; width: 100%; }
   #logo-v { width: 150px; }
@@ -391,19 +322,18 @@ input[type=submit]:hover, a.button:hover {
 /* -----------------------------------------
    Scrollbar Styling
 ----------------------------------------- */
-
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #0f1b0f; }
 ::-webkit-scrollbar-thumb {
   background: #00ff00;
   border-radius: 10px;
+  box-shadow: 0 0 5px #00ff00;
 }
 ::-webkit-scrollbar-thumb:hover { background: #00cc00; }
 
-/*------------------------------------------
+/* -----------------------------------------
    Focus Styles
 ----------------------------------------- */
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -412,7 +342,6 @@ textarea:focus-visible {
   outline-offset: 3px;
   box-shadow: 0 0 8px #00ff00;
 }
-
 input:focus-visible,
 textarea:focus-visible {
   border-color: #00ff00;
