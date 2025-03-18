@@ -7,25 +7,86 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <style>
-    select {
-      width: 2cm;
+    /* Terminal-style controls */
+    .player-container {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #00ff00;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00ff00;
+      font-family: 'VT323', monospace;
+    }
+
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .controls button,
+    .controls select,
+    .controls input[type="range"] {
+      background-color: black;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 5px 10px;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      transition: 0.2s ease;
+    }
+
+    .controls button:hover,
+    .controls select:hover,
+    .controls input[type="range"]:hover {
+      background-color: #002200;
+      box-shadow: 0 0 5px #00ff00;
+      cursor: pointer;
+    }
+
+    .controls input[type="range"] {
+      -webkit-appearance: none;
+      width: 150px;
+      height: 5px;
+      background: #003300;
+    }
+
+    .controls input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      background: #00ff00;
+      border: 1px solid #00ff00;
+      cursor: pointer;
+    }
+
+    .controls input[type="range"]::-moz-range-thumb {
+      width: 15px;
+      height: 15px;
+      background: #00ff00;
+      border: 1px solid #00ff00;
+      cursor: pointer;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+      filter: brightness(80%) contrast(120%);
     }
   </style>
 </head>
 <body>
   <div class="terminal-window wrapper">
 
-    <!-- CRT Overlay & Scanline -->
     <div class="overlay"></div>
     <div class="scanline"></div>
 
-    <!-- Terminal Window Container -->
     <div class="content clearfix">
-
-      <!-- Header -->
       <header class="site clearfix">
         <div class="col one">
-          <!-- Optional logo can go here -->
+          <!-- Logo can be inserted here -->
         </div>
         <div class="col two">
           <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
@@ -36,7 +97,6 @@
         </div>
       </header>
 
-      <!-- Radio Player Section -->
       <section class="player-container">
         <audio id="audio-player" controls autoplay>
           <source src="" type="audio/mpeg">
@@ -50,7 +110,7 @@
           <select id="station-select">
             <option value="Radio CHEM">Radio CHEM</option>
             <option value="Enclave Radio">Enclave Radio</option>
-            <!-- Add more stations if needed -->
+            <!-- More stations if needed -->
           </select>
         </div>
       </section>
