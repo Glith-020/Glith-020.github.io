@@ -1,47 +1,51 @@
-<!DOCTYPE html> 	
- 
-<title> Terminal Website</title>
-<div class="overlay"></div>
-	<div class="scanline"></div>
-<div class="wrapper">	
-<div class="content clearfix">
-	<link rel="stylesheet" href="style.css">
-		
-		<header class="site clearfix">
-		<div class="col one">
-			
-		</div>
-			<div class="col two">
-				<h4>Glith_020 <br /> <b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-				<p>----------------------------------------</p>
-				<p>E.C.C. Terminal v 1.0.0</p>
-				<p>&copy; RichCo, 2024 </p>
-				<p>- ECC Automation Program -</p>
-			</div>
-		</header>
-		
-        <div class="site clear">
-            <h1>The ECC Automation</h1>
-            One bot, then another and then terminals like this one. I did what I am good at. People seem to like it too.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECC Automation - E.C.C. Terminal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+<body>
+  <div class="terminal-window wrapper">
+
+    <!-- CRT Overlay & Scanline -->
+    <div class="overlay"></div>
+    <div class="scanline"></div>
+
+    <!-- Terminal Window Container -->
+    <div class="content clearfix">
+
+      <!-- Header -->
+      <header class="site clearfix">
+        <div class="col one">
+          <!-- Optional logo can go here -->
         </div>
-				
-		
+        <div class="col two">
+          <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+          <p>----------------------------------------</p>
+          <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
+          <p class="flicker-text">&copy; RichCo, 2024</p>
+          <p class="flicker-text">- ECC Automation Program -</p>
+        </div>
+      </header>
 
-		<p class="clear"><br /></p>
+      <!-- Automation Content Section -->
+      <section class="site clear">
+        <h1 class="flicker-text">The ECC Automation</h1>
+        <p class="flicker-text">
+          One bot, then another and then terminals like this one. I did what I am good at. People seem to like it too.
+        </p>
+      </section>
 
-		
-		
-	</div>
-</div>
+      <p class="clear"><br></p>
+    </div>
+  </div>
 
-
-
-<script> 
-	
-	
-	$(document).ready(function(){
-  $('#title').focus();
-    $('#text').autosize();
-});
-
-</script>
+  <!-- Optional JavaScript -->
+  <script>
+    // Placeholder for future scripts
+  </script>
+</body>
+</html>
