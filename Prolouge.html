@@ -1,52 +1,64 @@
-<!DOCTYPE html> 	
- 
-<title> Terminal Website</title>
-<div class="overlay"></div>
-	<div class="scanline"></div>
-<div class="wrapper">	
-<div class="content clearfix">
-	<link rel="stylesheet" href="style.css">
-		
-		<header class="site clearfix">
-		<div class="col one">
-			
-		</div>
-			<div class="col two">
-				<h4>Glith_020 <br /> <b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-				<p>----------------------------------------</p>
-				<p>E.C.C. Terminal v 1.0.0</p>
-				<p>&copy; RichCo, 2024 </p>
-				<p>- Log 15/10/2296 -</p>
-			</div>
-		</header>
-		
-        <div class="site clear">
-            <h1>The Prolouge</h1>
-            The day when my fate has changed. The day when I let my past go.
-            My Enclave and I fought against dutchclave. We did a good job. And the old Vice President of the Richclave saw this.
-            He saw Potential. We made a deal, i combine my enclave into theirs and they give us high ranks. I became the Colonel.
-            But His plan didn't go as planned. All my old members went offline. Only Kote and Joshyy got transfered.
-            A bit later, Joshyy left and went to BoS. And much later, Kote retired.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Terminal Window Container -->
+  <div class="terminal-window wrapper">
+
+    <!-- CRT Overlay & Scanline -->
+    <div class="overlay"></div>
+    <div class="scanline"></div>
+
+    <div class="content clearfix">
+
+      <!-- Header -->
+      <header class="site clearfix">
+        <div class="col one">
+          <!-- Optional logo or space -->
         </div>
-	<img src="Zrzut ekranu 2024-04-13 124706.png" alt="The great days.">
-				
-		
+        <div class="col two">
+          <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+          <p>----------------------------------------</p>
+          <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
+          <p class="flicker-text">&copy; RichCo, 2024</p>
+          <p class="flicker-text">- Log 15/10/2296 -</p>
+        </div>
+      </header>
 
-		<p class="clear"><br /></p>
+      <!-- Main Terminal Text Section -->
+      <section class="site clear">
+        <h1 class="flicker-text">The Prologue</h1>
+        <p class="flicker-text">
+          The day when my fate changed. The day I let my past go.<br><br>
+          My Enclave and I fought against Dutchclave. We did a good job. And the old Vice President of the Richclave saw this.<br><br>
+          He saw potential. We made a deal — I combine my Enclave into theirs and they give us high ranks. I became the Colonel.<br><br>
+          But his plan didn't go as expected. All my old members went offline. Only Kote and Joshyy got transferred.<br><br>
+          A bit later, Joshyy left and joined the BoS. Much later, Kote retired.
+        </p>
+      </section>
 
-		
-		
-	</div>
-</div>
+      <img src="Zrzut ekranu 2024-04-13 124706.png" alt="The great days." style="margin-top: 20px; max-width: 100%; height: auto; display: block;">
 
+      <p class="clear"><br></p>
+    </div>
+  </div>
 
-
-<script> 
-	
-	
-	$(document).ready(function(){
-  $('#title').focus();
-    $('#text').autosize();
-});
-
-</script>
+  <!-- Optional JavaScript -->
+  <script>
+    // Placeholder for future scripts
+    document.addEventListener("DOMContentLoaded", function() {
+      const textarea = document.getElementById("text");
+      if (textarea && textarea.autosize) {
+        textarea.autosize();
+      }
+    });
+  </script>
+</body>
+</html>
