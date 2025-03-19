@@ -8,13 +8,12 @@
   <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
-    /* Add this style for the typing effect */
+    /* Style for the text elements */
     .typing-text {
       font-family: 'VT323', monospace;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
-      width: 0;
     }
   </style>
 </head>
@@ -95,6 +94,8 @@
     let i = 0;
     function startTyping() {
       if (i < elements.length) {
+        // Set the width to ensure the text container is visible
+        $(elements[i].id).css('width', '0').text(""); // Reset width and text content initially
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
           startTyping(); // Call the next text after the current one finishes typing
