@@ -11,11 +11,11 @@
     /* Style for the text elements */
     .typing-text {
       font-family: 'VT323', monospace;
-      white-space: nowrap;
+      white-space: pre-wrap; /* Preserve line breaks */
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
       display: inline-block;
-      width: 0; /* Start with 0 width for typing effect */
+      color: white; /* Ensures text is visible */
     }
 
     /* Add styles for link */
@@ -80,6 +80,7 @@
 
       if (i < text.length) {
         $(element).html(text.substring(0, i + 1)); // Use .html() to render the text with <br> tags
+        console.log("Updated element content:", $(element).html()); // Log updated content
         i++;
         setTimeout(function() {
           typeWriter(element, text, i, callback);
