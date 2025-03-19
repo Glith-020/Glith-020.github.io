@@ -8,20 +8,12 @@
   <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
-    /* Style for the text elements */
+    /* Ensure typing text is initially visible */
     .typing-text {
       font-family: 'VT323', monospace;
-      white-space: pre-wrap; /* Preserve line breaks */
+      white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
-      display: inline-block;
-      color: white; /* Ensures text is visible */
-    }
-
-    /* Add styles for link */
-    a {
-      text-decoration: none;
-      color: #00ff00;
     }
   </style>
 </head>
@@ -53,15 +45,15 @@
     <!-- Navigation -->
     <nav class="site clear">
       <ul>
-        <li><a href="arch.html" class="typing-text" id="typed-archives" title="">Archives</a></li>
+        <li><a href="arch.html" class="typing-text" title="">Archives</a></li>
         <p class="flicker-text typing-text" id="typed-logs"></p><br>
-        <li><a href="about.html" class="typing-text" id="typed-logs-link" title="">Logs</a></li>
+        <li><a href="about.html" class="typing-text" title="">Logs</a></li>
         <p class="flicker-text typing-text" id="typed-radio"></p><br>
-        <li><a href="radio.html" class="typing-text" id="typed-radio-link" title="">Radio</a></li>
+        <li><a href="radio.html" class="typing-text" title="">Radio</a></li>
         <p class="flicker-text typing-text" id="typed-glithflix"></p><br>
-        <li><a href="glithflix.html" class="typing-text" id="typed-glithflix-link" title="">Glithflix</a></li>
+        <li><a href="glithflix.html" class="typing-text" title="">Glithflix</a></li>
         <p class="flicker-text typing-text" id="typed-others"></p><br>
-        <li><a href="Other.html" class="typing-text" id="typed-others-link" title="">Others</a></li>
+        <li><a href="Other.html" class="typing-text" title="">Others</a></li>
       </ul>
     </nav>
 
@@ -74,19 +66,15 @@
   $(document).ready(function() {
     // Add the typing effect function
     function typeWriter(element, text, i, callback) {
-      // Replace \n with <br> for line breaks
-      text = text.replace(/\n/g, "<br>");
-      console.log("Typing text for element", element, text); // Log the text after replacing newlines
-
+      // Update the element with text incrementally
       if (i < text.length) {
-        $(element).html(text.substring(0, i + 1)); // Use .html() to render the text with <br> tags
-        console.log("Updated element content:", $(element).html()); // Log updated content
+        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
         i++;
         setTimeout(function() {
           typeWriter(element, text, i, callback);
         }, 100); // Delay in ms for typing effect speed
       } else if (callback) {
-        callback();
+        callback(); // Move to the next text
       }
     }
 
@@ -100,29 +88,25 @@
       { id: '#typed-logs', text: 'Logs of Glith_020' },
       { id: '#typed-radio', text: 'Radio' },
       { id: '#typed-glithflix', text: 'Watch movies on Glithflix!' },
-      { id: '#typed-others', text: 'Pretty fucking self-explanatory, don\'t you think?' },
-      { id: '#typed-archives', text: 'Archives' },
-      { id: '#typed-logs-link', text: 'Logs' },
-      { id: '#typed-radio-link', text: 'Radio' },
-      { id: '#typed-glithflix-link', text: 'Glithflix' },
-      { id: '#typed-others-link', text: 'Others' }
+      { id: '#typed-others', text: 'Pretty fucking self-explanatory, don\'t you think?' }
     ];
 
     // Sequentially type out the text
     let i = 0;
     function startTyping() {
       if (i < elements.length) {
-        // Reset text before starting typing
-        $(elements[i].id).text(""); 
+        // Ensure the text container is visible before typing
+        $(elements[i].id).css('width', 'auto'); // Set the width to 'auto' so the text can be visible
+        $(elements[i].id).text(""); // Reset the content to empty before typing begins
 
+        // Start typing effect
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
           startTyping(); // Call the next text after the current one finishes typing
         });
       }
     }
-
-    // Start the typing effect
+    
     startTyping();
   });
 </script>
