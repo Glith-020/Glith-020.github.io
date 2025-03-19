@@ -55,8 +55,11 @@
 <!-- Optional JS -->
 <script>
   $(document).ready(function() {
-    $('.typing-loader').addClass('visible'); // Make the loader visible immediately
-  });
+  setTimeout(function() {
+    $('.typing-loader').addClass('visible'); // Makes the loader visible after a delay
+  }, 500); // Delay in milliseconds
+});
+
 </script>
 
 </body>
