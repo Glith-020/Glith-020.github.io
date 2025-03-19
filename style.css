@@ -217,9 +217,15 @@ ul a::after, p a::after {
   white-space: nowrap;
   border-right: 2px solid #00ff00;
   width: 0;
+  opacity: 1; /* Make sure the text is visible */
   display: inline-block;
   animation: type 2s steps(30, end) forwards, blink 1s step-end infinite;
 }
+
+.typing-loader.visible {
+  visibility: visible; /* Ensures the text becomes visible after animation */
+}
+
 
 /* -----------------------------------------
    Content Layout
