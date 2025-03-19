@@ -86,9 +86,16 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-p { line-height: 1.2; margin: 0 0 10px; }
+p {
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
 
-ul { list-style: none; margin: 0; padding: 0; }
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 a {
   color: #00ff00;
@@ -116,9 +123,17 @@ span.cursor {
 /* -----------------------------------------
    Terminal UI Styling
 ----------------------------------------- */
-ul a::before, p a::before { content: ' [ '; color: #00ff00; }
+ul a::before,
+p a::before {
+  content: ' [ ';
+  color: #00ff00;
+}
 
-ul a::after, p a::after { content: ' ] '; color: #00ff00; }
+ul a::after,
+p a::after {
+  content: ' ] ';
+  color: #00ff00;
+}
 
 /* -----------------------------------------
    Monitor Container - Fullscreen Background
@@ -132,9 +147,8 @@ ul a::after, p a::after { content: ' ] '; color: #00ff00; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* animation: monitorOn 1.5s ease forwards; <-- remove or comment this out */
+  /* The monitor container no longer fades in, so the animation property is removed */
 }
-
 
 /* Reflection on Monitor Surface */
 .monitor-container::before {
@@ -207,7 +221,10 @@ ul a::after, p a::after { content: ' ] '; color: #00ff00; }
 .overlay::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   mix-blend-mode: overlay;
   background:
     linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
@@ -218,7 +235,10 @@ ul a::after, p a::after { content: ' ] '; color: #00ff00; }
 .overlay::after {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   animation: flicker-random 1.2s infinite steps(1, end);
   animation-delay: 0.1s;
   background: rgba(0,255,0,0.03);
@@ -235,7 +255,8 @@ ul a::after, p a::after { content: ' ] '; color: #00ff00; }
   opacity: 0.05;
   position: absolute;
   top: 0;
-  left: 0; right: 0;
+  left: 0;
+  right: 0;
   pointer-events: none;
   z-index: 1;
   mix-blend-mode: overlay;
