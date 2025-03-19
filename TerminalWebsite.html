@@ -53,9 +53,10 @@
       50% { opacity: 0 } 
     }
 
-    /* Stop blink after typing animation */
+    /* Stop the blink after typing */
     .typing-loader.finished {
       animation: type 4s steps(35, end) forwards;
+      border-right: none; /* Remove the cursor */
     }
   </style>
 </head>
@@ -115,7 +116,7 @@
 
       // Match the typing animation (4s) + extra buffer
       setTimeout(() => {
-        // Add finished class to stop the blinking animation
+        // Add finished class to stop the blinking animation and typing effect
         typingText.classList.add('finished');
 
         // Hide the loader and show the content after 1 second of buffer
