@@ -5,19 +5,14 @@
   <title>Terminal Website</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-  <style>
-    
-
-  </style>
 </head>
 <body>
-<div class="terminal-window wrapper">
-  <!-- CRT Overlay & Scanline -->
-  <div class="overlay"></div>
-  <div class="scanline"></div>
+  <div class="terminal-window wrapper">
+    <!-- CRT Overlay & Scanline -->
+    <div class="overlay"></div>
+    <div class="scanline"></div>
 
-  <!-- Terminal Window Container -->
-  
+    <!-- Terminal Window Container -->
     <div class="content clearfix">
 
       <!-- Header -->
@@ -33,6 +28,11 @@
           <p class="flicker-text">- Server 017 -</p>
         </div>
       </header>
+
+      <!-- 🔥 Typing Loader Section -->
+      <div style="margin: 20px 0;">
+        <p class="typing-loader">Loading terminal protocols...</p>
+      </div>
 
       <!-- Navigation -->
       <nav class="site clear">
@@ -67,6 +67,5 @@
       $('#text').autosize();
     });
   </script>
-
 </body>
 </html>
