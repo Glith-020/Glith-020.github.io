@@ -44,15 +44,26 @@
       animation: type 4s steps(35, end) forwards, blink 1s step-end infinite;
     }
 
-    @keyframes type { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { opacity: 0 } }
+    @keyframes type { 
+      from { width: 0 } 
+      to { width: 100% } 
+    }
+
+    @keyframes blink { 
+      50% { opacity: 0 } 
+    }
+
+    /* Stop blink after typing animation */
+    .typing-loader.finished {
+      animation: type 4s steps(35, end) forwards;
+    }
   </style>
 </head>
 <body>
 
   <!-- Typing Loader Fullscreen -->
   <div class="typing-wrapper" id="loader-screen">
-    <span class="typing-loader">Initializing Terminal Access...</span>
+    <span class="typing-loader" id="typing-text">Initializing Terminal Access...</span>
   </div>
 
   <!-- Main Terminal Window -->
@@ -100,12 +111,19 @@
     window.addEventListener('DOMContentLoaded', () => {
       const loader = document.getElementById('loader-screen');
       const content = document.getElementById('main-content');
+      const typingText = document.getElementById('typing-text');
 
       // Match the typing animation (4s) + extra buffer
       setTimeout(() => {
-        loader.style.display = 'none';
-        content.classList.add('visible');
-      }, 5000); // 5 seconds total
+        // Add finished class to stop the blinking animation
+        typingText.classList.add('finished');
+
+        // Hide the loader and show the content after 1 second of buffer
+        setTimeout(() => {
+          loader.style.display = 'none';
+          content.classList.add('visible');
+        }, 1000); // Hide loader after 1 second
+      }, 4000); // Typing finishes at 4s
     });
   </script>
 
