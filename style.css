@@ -116,6 +116,7 @@ a {
 
 a:hover {
   color: #ff5555;
+   text-shadow: 0 0 5px #ff5555, 0 0 10px #ff5555;
 }
 
 a:hover::after {
