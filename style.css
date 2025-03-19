@@ -138,19 +138,21 @@ p a::after {
 /* -----------------------------------------
    Monitor Container - Fullscreen Background
 ----------------------------------------- */
+/* Monitor Container - Adjusted for Monitor Shape */
 .monitor-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
+  width: 80vw;  /* Adjust this for size */
+  height: calc(80vw * 9 / 16); /* Maintain 16:9 aspect ratio */
+  background: #000; /* Black background to simulate turned-off monitor */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* The monitor container no longer fades in, so the animation property is removed */
+  border-radius: 15px; /* Optional: Round the corners for a realistic monitor look */
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.2); /* Optional: Add a soft green glow for effect */
 }
 
-/* Reflection on Monitor Surface */
+/* Optional: Refined reflection effect */
 .monitor-container::before {
   content: "";
   position: absolute;
@@ -163,6 +165,7 @@ p a::after {
   pointer-events: none;
   mix-blend-mode: screen;
 }
+
 
 /* -----------------------------------------
    Terminal Window Box
