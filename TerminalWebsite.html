@@ -67,7 +67,12 @@
     // Add the typing effect function
     function typeWriter(element, text, i, callback) {
       if (i < text.length) {
-        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
+        // If it's a link, we use html to preserve the <a> tag and href
+        if ($(element).is("a")) {
+          $(element).text(text.substring(0, i + 1));
+        } else {
+          $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
+        }
         i++;
         setTimeout(function() {
           typeWriter(element, text, i, callback);
