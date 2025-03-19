@@ -5,6 +5,8 @@
   <title>Terminal Website</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -33,16 +35,16 @@
     <!-- Navigation -->
     <nav class="site clear">
       <ul>
-        <li ><a href="arch.html" title="">Archives</a></li>
+        <li><a href="arch.html" title="">Archives</a></li>
         <p class="flicker-text"> </p><br>
-        <li ><a href="about.html" title="">Logs</a></li>
-        <p class="flicker-text" >Logs of Glith_020</p><br>
+        <li><a href="about.html" title="">Logs</a></li>
+        <p class="flicker-text">Logs of Glith_020</p><br>
         <li><a href="radio.html" title="">Radio</a></li>
         <p class="flicker-text">Radio</p><br>
         <li><a href="glithflix.html" title="">Glithflix</a></li>
         <p class="flicker-text">Watch movies on Glithflix!</p><br>
         <li><a href="Other.html" title="">Others</a></li>
-        <p class="flicker-text" class="typing-loader">Pretty fucking self-explanatory, don't you think?</p><br>
+        <p class="flicker-text typing-loader">Pretty fucking self-explanatory, don't you think?</p><br>
       </ul>
     </nav>
 
@@ -51,14 +53,10 @@
 </div>
 
 <!-- Optional JS -->
-
 <script>
   $(document).ready(function() {
-  setTimeout(function() {
-    $('.typing-loader').addClass('visible'); // Makes the loader visible after a delay
-  }, 500); // Delay in milliseconds
-});
-
+    $('.typing-loader').addClass('visible'); // Make the loader visible immediately
+  });
 </script>
 
 </body>
