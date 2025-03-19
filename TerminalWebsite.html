@@ -5,68 +5,61 @@
   <title>Terminal Website</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-  <style>
-    
-
-  </style>
 </head>
 <body>
+
 <div class="terminal-window wrapper">
   <!-- CRT Overlay & Scanline -->
   <div class="overlay"></div>
   <div class="scanline"></div>
 
   <!-- Terminal Window Container -->
-  
-    <div class="content clearfix">
+  <div class="content clearfix">
 
-      <!-- Header -->
-      <header class="site clearfix">
-        <div class="col one">
-          <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
-        </div>
-        <div class="col two">
-          <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-          <p>----------------------------------------</p>
-          <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
-          <p class="flicker-text">&copy; RichCo, 2024</p>
-          <p class="flicker-text">- Server 017 -</p>
-        </div>
-      </header>
+    <!-- Header -->
+    <header class="site clearfix">
+      <div class="col one">
+        <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
+      </div>
+      <div class="col two">
+        <h4 class="flicker-text" style="animation-delay: 0.5s;">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+        <p class="flicker-text" style="animation-delay: 1s;">----------------------------------------</p>
+        <p class="flicker-text" style="animation-delay: 1.5s;">E.C.C. Terminal v 1.0.0</p>
+        <p class="flicker-text" style="animation-delay: 2s;">&copy; RichCo, 2024</p>
+        <p class="flicker-text" style="animation-delay: 2.5s;">- Server 017 -</p>
+      </div>
+    </header>
 
-      <!-- Navigation -->
-      <nav class="site clear">
-        <ul>
-          <li><a href="arch.html" title="">Archives</a></li>
-          <p class="flicker-text"> </p>
-          <br>
-          <li><a href="about.html" title="">Logs</a></li>
-          <p class="flicker-text">Logs of Glith_020</p>
-          <br>
-          <li><a href="radio.html" title="">Radio</a></li>
-          <p class="flicker-text">Radio</p>
-          <br>
-          <li><a href="glithflix.html" title="">Glithflix</a></li>
-          <p class="flicker-text">Watch movies on Glithflix!</p>
-          <br>
-          <li><a href="Other.html" title="">Others</a></li>
-          <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p>
-          <br>
-        </ul>
-      </nav>
+    <!-- Navigation -->
+    <nav class="site clear">
+      <ul>
+        <li style="animation-delay: 3s;"><a href="arch.html" title="">Archives</a></li>
+        <p class="flicker-text" style="animation-delay: 3.5s;"> </p><br>
+        <li style="animation-delay: 4s;"><a href="about.html" title="">Logs</a></li>
+        <p class="flicker-text" style="animation-delay: 4.5s;">Logs of Glith_020</p><br>
+        <li style="animation-delay: 5s;"><a href="radio.html" title="">Radio</a></li>
+        <p class="flicker-text" style="animation-delay: 5.5s;">Radio</p><br>
+        <li style="animation-delay: 6s;"><a href="glithflix.html" title="">Glithflix</a></li>
+        <p class="flicker-text" style="animation-delay: 6.5s;">Watch movies on Glithflix!</p><br>
+        <li style="animation-delay: 7s;"><a href="Other.html" title="">Others</a></li>
+        <p class="flicker-text" style="animation-delay: 7.5s;">Pretty fucking self-explanatory, don't you think?</p><br>
+      </ul>
+    </nav>
 
-      <p class="clear"><br></p>
-
-    </div>
+    <p class="clear"><br></p>
   </div>
+</div>
 
-  <!-- Optional JS -->
-  <script>
-    $(document).ready(function () {
-      $('#title').focus();
-      $('#text').autosize();
-    });
-  </script>
+<!-- Optional JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // This ensures that all text blocks load after the page is ready.
+    setTimeout(function() {
+      $('.flicker-text').css('visibility', 'visible'); // Make all text blocks visible with animation
+    }, 100); // Small delay to allow animations to trigger
+  });
+</script>
 
 </body>
 </html>
