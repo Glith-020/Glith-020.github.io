@@ -74,6 +74,7 @@
           typeWriter(element, text, i, callback);
         }, 100); // Delay in ms for typing effect speed
       } else if (callback) {
+        $(element).css('border-right', 'none'); // Remove the green cursor effect after typing is complete
         callback(); // Move to the next text
       }
     }
