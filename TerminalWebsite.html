@@ -7,6 +7,33 @@
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Add this style for the typing effect */
+    .typing-text {
+      font-family: 'VT323', monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00ff00; /* Green cursor effect */
+      width: 0;
+      animation: typing 4s steps(40) 1s forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    /* Add the blinking cursor effect */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -24,7 +51,8 @@
         <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
       </div>
       <div class="col two">
-        <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+        <!-- Add the typing text here -->
+        <h4 class="typing-text" id="typed-header">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
         <p class="flicker-text">----------------------------------------</p>
         <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
         <p class="flicker-text">&copy; RichCo, 2024</p>
@@ -55,11 +83,23 @@
 <!-- Optional JS -->
 <script>
   $(document).ready(function() {
-  setTimeout(function() {
-    $('.typing-loader').addClass('visible'); // Makes the loader visible after a delay
-  }, 500); // Delay in milliseconds
-});
+    // Add the typing effect
+    function typeWriter(element, text, i, callback) {
+      if (i < text.length) {
+        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
+        i++;
+        setTimeout(function() {
+          typeWriter(element, text, i, callback);
+        }, 100); // Delay in ms for typing effect speed
+      } else if (callback) {
+        callback();
+      }
+    }
 
+    // Start typing effect for the header text
+    const headerText = 'Glith_020 \nEnclave Chemical Corps (E.C.C.)';
+    typeWriter('#typed-header', headerText, 0);
+  });
 </script>
 
 </body>
