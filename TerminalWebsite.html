@@ -5,16 +5,58 @@
   <title>Terminal Website</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <style>
+    /* Hides content initially */
+    .content {
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+
+    .content.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Typing loader wrapper */
+    .typing-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #0f1b0f;
+      color: #00ff00;
+      font-family: 'VT323', monospace;
+      font-size: 1.6em;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+
+    .typing-loader {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ff00;
+      width: 0;
+      display: inline-block;
+      animation: type 2.5s steps(30, end) forwards, blink 1s step-end infinite;
+    }
+
+    @keyframes type { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { opacity: 0 } }
+  </style>
 </head>
 <body>
-  <div class="terminal-window wrapper">
-    <!-- CRT Overlay & Scanline -->
+
+  <!-- Typing loader screen -->
+  <div class="typing-wrapper" id="loader-screen">
+    <span class="typing-loader">Initializing Terminal Access...</span>
+  </div>
+
+  <!-- Main Terminal Window -->
+  <div class="terminal-window wrapper content" id="main-content">
     <div class="overlay"></div>
     <div class="scanline"></div>
 
-    <!-- Terminal Window Container -->
-    <div class="content clearfix">
-
+    <div class="content-inner clearfix">
       <!-- Header -->
       <header class="site clearfix">
         <div class="col one">
@@ -29,43 +71,45 @@
         </div>
       </header>
 
-      <!-- 🔥 Typing Loader Section -->
-      <div style="margin: 20px 0;">
-        <p class="typing-loader">Loading terminal protocols...</p>
-      </div>
-
       <!-- Navigation -->
       <nav class="site clear">
         <ul>
-          <li><a href="arch.html" title="">Archives</a></li>
+          <li><a href="arch.html">Archives</a></li>
           <p class="flicker-text"> </p>
           <br>
-          <li><a href="about.html" title="">Logs</a></li>
+          <li><a href="about.html">Logs</a></li>
           <p class="flicker-text">Logs of Glith_020</p>
           <br>
-          <li><a href="radio.html" title="">Radio</a></li>
+          <li><a href="radio.html">Radio</a></li>
           <p class="flicker-text">Radio</p>
           <br>
-          <li><a href="glithflix.html" title="">Glithflix</a></li>
+          <li><a href="glithflix.html">Glithflix</a></li>
           <p class="flicker-text">Watch movies on Glithflix!</p>
           <br>
-          <li><a href="Other.html" title="">Others</a></li>
+          <li><a href="Other.html">Others</a></li>
           <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p>
           <br>
         </ul>
       </nav>
 
       <p class="clear"><br></p>
-
     </div>
   </div>
 
-  <!-- Optional JS -->
+  <!-- JS: Delay display transition -->
   <script>
-    $(document).ready(function () {
-      $('#title').focus();
-      $('#text').autosize();
+    // Delay for loader + fade-in content
+    window.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('loader-screen');
+      const content = document.getElementById('main-content');
+
+      // Change delay here (e.g., 3500 = 3.5 seconds)
+      setTimeout(() => {
+        loader.style.display = 'none';           // Hide typing screen
+        content.classList.add('visible');        // Show terminal content
+      }, 3500);
     });
   </script>
+
 </body>
 </html>
