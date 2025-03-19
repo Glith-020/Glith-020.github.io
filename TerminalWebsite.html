@@ -5,7 +5,6 @@
   <title>Terminal Website</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-  <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     /* Style for the text elements */
@@ -28,20 +27,15 @@
 <body>
 
 <div class="terminal-window wrapper">
-  <!-- CRT Overlay & Scanline -->
   <div class="overlay"></div>
   <div class="scanline"></div>
-
-  <!-- Terminal Window Container -->
   <div class="content clearfix">
 
-    <!-- Header -->
     <header class="site clearfix">
       <div class="col one">
         <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
       </div>
       <div class="col two">
-        <!-- Add the typing text here for each piece -->
         <h4 class="typing-text" id="typed-header"></h4>
         <p class="flicker-text typing-text" id="typed-divider"></p>
         <p class="flicker-text typing-text" id="typed-version"></p>
@@ -50,7 +44,6 @@
       </div>
     </header>
 
-    <!-- Navigation -->
     <nav class="site clear">
       <ul>
         <li><a href="arch.html" class="typing-text" id="typed-archives" title="">Archives</a></li>
@@ -69,17 +62,19 @@
   </div>
 </div>
 
-<!-- Optional JS -->
 <script>
   $(document).ready(function() {
     // Add the typing effect function
     function typeWriter(element, text, i, callback) {
+      // Replace \n with <br> to create line breaks
+      text = text.replace(/\n/g, "<br>");
+      
       if (i < text.length) {
-        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
+        $(element).html(text.substring(0, i + 1)); // Use .html() to include <br> tags
         i++;
         setTimeout(function() {
           typeWriter(element, text, i, callback);
-        }, 100); // Delay in ms for typing effect speed
+        }, 150); // Increase speed to 150ms for a slower effect
       } else if (callback) {
         callback();
       }
@@ -107,8 +102,7 @@
     let i = 0;
     function startTyping() {
       if (i < elements.length) {
-        // Reset text before starting typing
-        $(elements[i].id).text(""); 
+        $(elements[i].id).text(""); // Reset text
 
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
