@@ -4,27 +4,17 @@
    CRT Terminal Animations
 ----------------------------------------- */
 @keyframes fadeInSlide {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
 @keyframes scan {
-  from {
-    top: 0;
-  }
-  to {
-    top: 100%;
-  }
+  from { top: 0; }
+  to { top: 100%; }
 }
 
 @keyframes flicker-random {
@@ -55,6 +45,11 @@
   100% { opacity: 1; }
 }
 
+@keyframes monitorOn {
+  0% { opacity: 0; background: #000; }
+  100% { opacity: 1; background: #000; }
+}
+
 /* -----------------------------------------
    Global Reset & Base
 ----------------------------------------- */
@@ -62,8 +57,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   background: #0f1b0f;
   color: #00ff00;
   font-family: 'VT323', monospace;
@@ -86,27 +80,15 @@ img {
   display: block;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin: 0;
   text-transform: uppercase;
 }
 
-p {
-  line-height: 1.2;
-  margin: 0 0 10px;
-}
+p { line-height: 1.2; margin: 0 0 10px; }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+ul { list-style: none; margin: 0; padding: 0; }
 
 a {
   color: #00ff00;
@@ -134,16 +116,37 @@ span.cursor {
 /* -----------------------------------------
    Terminal UI Styling
 ----------------------------------------- */
-ul a::before,
-p a::before {
-  content: ' [ ';
-  color: #00ff00;
+ul a::before, p a::before { content: ' [ '; color: #00ff00; }
+
+ul a::after, p a::after { content: ' ] '; color: #00ff00; }
+
+/* -----------------------------------------
+   Monitor Container - Fullscreen Background
+----------------------------------------- */
+.monitor-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: monitorOn 1.5s ease forwards;
 }
 
-ul a::after,
-p a::after {
-  content: ' ] ';
-  color: #00ff00;
+/* Reflection on Monitor Surface */
+.monitor-container::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0));
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 /* -----------------------------------------
@@ -152,10 +155,7 @@ p a::after {
 .terminal-window {
   border: 4px solid #00ff00;
   background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.08), rgba(0, 0, 0, 0.95));
-  box-shadow:
-    0 0 20px rgba(0, 255, 0, 0.3),
-    inset 0 0 60px rgba(0, 255, 0, 0.05),
-    0 10px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 60px rgba(0, 255, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   position: relative;
   z-index: 3;
@@ -174,8 +174,23 @@ p a::after {
   text-shadow: 0 0 3px rgba(0, 255, 0, 0.7);
 }
 
+/* Reflection Effect on Terminal */
+.terminal-window::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 30%, rgba(0,0,0,0) 100%);
+  mix-blend-mode: screen;
+  border-radius: inherit;
+}
+
 /* -----------------------------------------
-   CRT FX Overlay (Scoped inside terminal-window)
+   CRT FX Overlay
 ----------------------------------------- */
 .overlay {
   position: absolute;
@@ -185,38 +200,32 @@ p a::after {
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  border-radius: inherit;
 }
 
 .overlay::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   mix-blend-mode: overlay;
   background:
     linear-gradient(#0f1b0f 50%, rgba(16, 24, 16, 0.2) 50%),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.015), rgba(0, 255, 0, 0.02));
+    linear-gradient(90deg, rgba(0,255,0,0.02), rgba(0,255,0,0.015), rgba(0,255,0,0.02));
   background-size: 100% 3px, 6px 100%;
 }
 
 .overlay::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  animation: flicker-random 1.2s infinite;
-  animation-timing-function: steps(1, end);
+  top: 0; left: 0; right: 0; bottom: 0;
+  animation: flicker-random 1.2s infinite steps(1, end);
   animation-delay: 0.1s;
-  background: rgba(0, 255, 0, 0.03);
+  background: rgba(0,255,0,0.03);
   mix-blend-mode: overlay;
 }
 
 /* -----------------------------------------
-   Scanline FX (Scoped inside terminal-window)
+   Scanline FX
 ----------------------------------------- */
 .scanline {
   animation: scan 10s linear infinite;
@@ -225,19 +234,15 @@ p a::after {
   opacity: 0.05;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   pointer-events: none;
   z-index: 1;
   mix-blend-mode: overlay;
+  border-radius: inherit;
 }
 
 /* -----------------------------------------
-   Typing Loader
------------------------------------------ */
-
-/* -----------------------------------------
-   Content Layout
+   Layout
 ----------------------------------------- */
 .wrapper {
   margin: 0;
@@ -263,9 +268,7 @@ p a::after {
   padding: 0 20px;
 }
 
-.col.two {
-  width: auto;
-}
+.col.two { width: auto; }
 
 #logo-v {
   display: block;
@@ -284,7 +287,7 @@ img.pip-hero {
 }
 
 /* -----------------------------------------
-   Form Styling
+   Forms
 ----------------------------------------- */
 label {
   display: block;
@@ -294,8 +297,7 @@ label {
   clear: left;
 }
 
-input[type=text],
-textarea {
+input[type=text], textarea {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -303,7 +305,7 @@ textarea {
   font-size: 1.2em;
   padding: 8px;
   width: 80%;
-  box-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
+  box-shadow: 0 0 6px rgba(0,255,0,0.4);
 }
 
 textarea {
@@ -320,8 +322,7 @@ a.button:focus {
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
-input[type=submit],
-a.button {
+input[type=submit], a.button {
   background: transparent;
   border: 1px solid #00ff00;
   color: #00ff00;
@@ -336,66 +337,39 @@ a.button {
   transition: all 0.3s ease;
 }
 
-input[type=submit]:hover,
-a.button:hover {
+input[type=submit]:hover, a.button:hover {
   background: #00ff00;
   color: #0f1b0f;
   opacity: 0.9;
 }
 
 /* -----------------------------------------
-   Flickering Text
+   Extras
 ----------------------------------------- */
 .flicker-text {
-  animation: flicker-random 2s infinite;
-  animation-timing-function: steps(1, end);
+  animation: flicker-random 2s infinite steps(1, end);
   animation-delay: 0.2s;
 }
 
-/* -----------------------------------------
-   Helpers
------------------------------------------ */
-.clear {
-  clear: both;
-}
+.clear { clear: both; }
 
-.clearfix {
-  overflow: auto;
-  zoom: 1;
-}
+.clearfix { overflow: auto; zoom: 1; }
 
-.upper {
-  text-transform: uppercase;
-}
+.upper { text-transform: uppercase; }
 
 /* -----------------------------------------
-   Responsive Design
+   Responsive
 ----------------------------------------- */
 @media (max-width: 768px) {
-  .content {
-    padding: 20px;
-    width: 100%;
-  }
-  #logo-v {
-    width: 150px;
-  }
-  nav.site ul {
-    display: block;
-    width: 100%;
-  }
-  nav.site ul li {
+  .content { padding: 20px; width: 100%; }
+  #logo-v { width: 150px; }
+  nav.site ul, nav.site ul li {
     display: block;
     width: 100%;
     padding: 10px;
   }
-  input[type=text],
-  textarea {
-    width: 100%;
-  }
-  input[type=submit],
-  a.button {
-    padding: 10px 40px;
-  }
+  input[type=text], textarea { width: 100%; }
+  input[type=submit], a.button { padding: 10px 40px; }
   img.pip-hero {
     float: none;
     display: block;
@@ -407,44 +381,24 @@ a.button:hover {
 /* -----------------------------------------
    Scrollbar Styling
 ----------------------------------------- */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f1b0f;
-}
-
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0f1b0f; }
 ::-webkit-scrollbar-thumb {
   background: #00ff00;
   border-radius: 10px;
   box-shadow: 0 0 5px #00ff00;
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc00;
-}
+::-webkit-scrollbar-thumb:hover { background: #00cc00; }
 
 /* -----------------------------------------
    Focus Styles
 ----------------------------------------- */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px dashed #00ff00;
   outline-offset: 3px;
   box-shadow: 0 0 8px #00ff00;
 }
-
-input:focus-visible,
-textarea:focus-visible {
+input:focus-visible, textarea:focus-visible {
   border-color: #00ff00;
   background-color: rgba(0, 255, 0, 0.05);
-}
-
-.overlay,
-.scanline {
-  border-radius: inherit;
 }
