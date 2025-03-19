@@ -51,14 +51,14 @@
 </div>
 
 <!-- Optional JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
   $(document).ready(function() {
-    // This ensures that all text blocks load after the page is ready.
-    setTimeout(function() {
-      $('.flicker-text').css('visibility', 'visible'); // Make all text blocks visible with animation
-    }, 100); // Small delay to allow animations to trigger
-  });
+  setTimeout(function() {
+    $('.typing-loader').addClass('visible'); // Makes the loader visible after a delay
+  }, 500); // Delay in milliseconds
+});
+
 </script>
 
 </body>
