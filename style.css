@@ -116,7 +116,7 @@ a {
 
 a:hover {
   color: #ff5555;
-   text-shadow: 0 0 5px #ff5555, 0 0 10px #ff5555;
+  text-shadow: 0 0 5px #ff5555, 0 0 10px #ff5555;
 }
 
 a:hover::after {
@@ -155,7 +155,7 @@ p a::after {
   box-shadow:
     0 0 20px rgba(0, 255, 0, 0.3),
     inset 0 0 60px rgba(0, 255, 0, 0.05),
-    0 10px 30px rgba(0, 0, 0, 0.8); /* Outer monitor shadow */
+    0 10px 30px rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   position: relative;
   z-index: 3;
@@ -236,7 +236,6 @@ p a::after {
    Typing Loader
 ----------------------------------------- */
 
-
 /* -----------------------------------------
    Content Layout
 ----------------------------------------- */
@@ -245,7 +244,7 @@ p a::after {
   padding: 0;
   overflow: hidden;
   animation: fadeInSlide 1.5s ease-out forwards;
-  opacity: 0; /* Will fade in */
+  opacity: 0;
 }
 
 .content {
