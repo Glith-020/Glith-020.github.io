@@ -51,28 +51,27 @@
         <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
       </div>
       <div class="col two">
-        <!-- Add the typing text here -->
-        <h4 class="typing-text flicker-text" id="typed-header">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-        <p class="flicker-text">----------------------------------------</p>
-        <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
-        <p class="flicker-text">&copy; RichCo, 2024</p>
-        <p class="flicker-text">- Server 017 -</p>
+        <!-- Add the typing text here for each piece -->
+        <h4 class="typing-text" id="typed-header">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+        <p class="flicker-text typing-text" id="typed-divider">----------------------------------------</p>
+        <p class="flicker-text typing-text" id="typed-version">E.C.C. Terminal v 1.0.0</p>
+        <p class="flicker-text typing-text" id="typed-copyright">&copy; RichCo, 2024</p>
+        <p class="flicker-text typing-text" id="typed-server">- Server 017 -</p>
       </div>
     </header>
 
     <!-- Navigation -->
     <nav class="site clear">
       <ul>
-        <li><a href="arch.html" title="">Archives</a></li>
-        <p class="flicker-text"> </p><br>
-        <li><a href="about.html" title="">Logs</a></li>
-        <p class="flicker-text">Logs of Glith_020</p><br>
-        <li><a href="radio.html" title="">Radio</a></li>
-        <p class="flicker-text">Radio</p><br>
-        <li><a href="glithflix.html" title="">Glithflix</a></li>
-        <p class="flicker-text">Watch movies on Glithflix!</p><br>
-        <li><a href="Other.html" title="">Others</a></li>
-        <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p><br>
+        <li><a href="arch.html" class="typing-text" title="">Archives</a></li>
+        <p class="flicker-text typing-text" id="typed-logs">Logs of Glith_020</p><br>
+        <li><a href="about.html" class="typing-text" title="">Logs</a></li>
+        <p class="flicker-text typing-text" id="typed-radio">Radio</p><br>
+        <li><a href="radio.html" class="typing-text" title="">Radio</a></li>
+        <p class="flicker-text typing-text" id="typed-glithflix">Watch movies on Glithflix!</p><br>
+        <li><a href="glithflix.html" class="typing-text" title="">Glithflix</a></li>
+        <p class="flicker-text typing-text" id="typed-others">Pretty fucking self-explanatory, don't you think?</p><br>
+        <li><a href="Other.html" class="typing-text" title="">Others</a></li>
       </ul>
     </nav>
 
@@ -83,7 +82,7 @@
 <!-- Optional JS -->
 <script>
   $(document).ready(function() {
-    // Add the typing effect
+    // Add the typing effect function
     function typeWriter(element, text, i, callback) {
       if (i < text.length) {
         $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
@@ -96,9 +95,31 @@
       }
     }
 
-    // Start typing effect for the header text
-    const headerText = 'Glith_020 \nEnclave Chemical Corps (E.C.C.)';
-    typeWriter('#typed-header', headerText, 0);
+    // Add the typing effect for each element
+    const elements = [
+      { id: '#typed-header', text: 'Glith_020 \nEnclave Chemical Corps (E.C.C.)' },
+      { id: '#typed-divider', text: '----------------------------------------' },
+      { id: '#typed-version', text: 'E.C.C. Terminal v 1.0.0' },
+      { id: '#typed-copyright', text: '© RichCo, 2024' },
+      { id: '#typed-server', text: '- Server 017 -' },
+      { id: '#typed-logs', text: 'Logs of Glith_020' },
+      { id: '#typed-radio', text: 'Radio' },
+      { id: '#typed-glithflix', text: 'Watch movies on Glithflix!' },
+      { id: '#typed-others', text: 'Pretty fucking self-explanatory, don\'t you think?' }
+    ];
+
+    // Sequentially type out the text
+    let i = 0;
+    function startTyping() {
+      if (i < elements.length) {
+        typeWriter(elements[i].id, elements[i].text, 0, function() {
+          i++;
+          startTyping();
+        });
+      }
+    }
+    
+    startTyping();
   });
 </script>
 
