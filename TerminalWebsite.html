@@ -14,6 +14,8 @@
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
+      width: 0; /* Initially set the width to 0 */
+      display: inline-block; /* Make sure the element takes up space */
     }
   </style>
 </head>
@@ -67,12 +69,7 @@
     // Add the typing effect function
     function typeWriter(element, text, i, callback) {
       if (i < text.length) {
-        // If it's a link, we use html to preserve the <a> tag and href
-        if ($(element).is("a")) {
-          $(element).text(text.substring(0, i + 1));
-        } else {
-          $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
-        }
+        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
         i++;
         setTimeout(function() {
           typeWriter(element, text, i, callback);
@@ -104,15 +101,15 @@
     let i = 0;
     function startTyping() {
       if (i < elements.length) {
-        // Set the width to ensure the text container is visible
-        $(elements[i].id).css('width', '0').text(""); // Reset width and text content initially
+        // Reset text and width before typing
+        $(elements[i].id).css('width', '0').text(""); 
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
           startTyping(); // Call the next text after the current one finishes typing
         });
       }
     }
-    
+
     startTyping();
   });
 </script>
