@@ -14,8 +14,7 @@
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
-      width: 0; /* Initially set the width to 0 */
-      display: inline-block; /* Make sure the element takes up space */
+      display: inline-block;
     }
   </style>
 </head>
@@ -102,7 +101,9 @@
     function startTyping() {
       if (i < elements.length) {
         // Reset text and width before typing
-        $(elements[i].id).css('width', '0').text(""); 
+        $(elements[i].id).text("");  // Reset text before starting typing
+        $(elements[i].id).css('width', '0');  // Reset width to 0
+
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
           startTyping(); // Call the next text after the current one finishes typing
@@ -110,6 +111,7 @@
       }
     }
 
+    // Start the typing effect
     startTyping();
   });
 </script>
