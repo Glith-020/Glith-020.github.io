@@ -132,8 +132,9 @@ ul a::after, p a::after { content: ' ] '; color: #00ff00; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  animation: monitorOn 1.5s ease forwards;
+  /* animation: monitorOn 1.5s ease forwards; <-- remove or comment this out */
 }
+
 
 /* Reflection on Monitor Surface */
 .monitor-container::before {
