@@ -15,6 +15,13 @@
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
       display: inline-block;
+      width: 0; /* Start with 0 width for typing effect */
+    }
+
+    /* Add styles for link */
+    a {
+      text-decoration: none;
+      color: #00ff00;
     }
   </style>
 </head>
@@ -100,9 +107,8 @@
     let i = 0;
     function startTyping() {
       if (i < elements.length) {
-        // Reset text and width before typing
-        $(elements[i].id).text("");  // Reset text before starting typing
-        $(elements[i].id).css('width', '0');  // Reset width to 0
+        // Reset text before starting typing
+        $(elements[i].id).text(""); 
 
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
