@@ -15,23 +15,6 @@
       overflow: hidden;
       border-right: 2px solid #00ff00; /* Green cursor effect */
       width: 0;
-      animation: typing 4s steps(40) 1s forwards, blink-caret 0.75s step-end infinite;
-    }
-
-    /* Add the blinking cursor effect */
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink-caret {
-      50% {
-        border-color: transparent;
-      }
     }
   </style>
 </head>
@@ -52,11 +35,11 @@
       </div>
       <div class="col two">
         <!-- Add the typing text here for each piece -->
-        <h4 class="typing-text" id="typed-header">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
-        <p class="flicker-text typing-text" id="typed-divider">----------------------------------------</p>
-        <p class="flicker-text typing-text" id="typed-version">E.C.C. Terminal v 1.0.0</p>
-        <p class="flicker-text typing-text" id="typed-copyright">&copy; RichCo, 2024</p>
-        <p class="flicker-text typing-text" id="typed-server">- Server 017 -</p>
+        <h4 class="typing-text" id="typed-header"></h4>
+        <p class="flicker-text typing-text" id="typed-divider"></p>
+        <p class="flicker-text typing-text" id="typed-version"></p>
+        <p class="flicker-text typing-text" id="typed-copyright"></p>
+        <p class="flicker-text typing-text" id="typed-server"></p>
       </div>
     </header>
 
@@ -64,13 +47,13 @@
     <nav class="site clear">
       <ul>
         <li><a href="arch.html" class="typing-text" title="">Archives</a></li>
-        <p class="flicker-text typing-text" id="typed-logs">Logs of Glith_020</p><br>
+        <p class="flicker-text typing-text" id="typed-logs"></p><br>
         <li><a href="about.html" class="typing-text" title="">Logs</a></li>
-        <p class="flicker-text typing-text" id="typed-radio">Radio</p><br>
+        <p class="flicker-text typing-text" id="typed-radio"></p><br>
         <li><a href="radio.html" class="typing-text" title="">Radio</a></li>
-        <p class="flicker-text typing-text" id="typed-glithflix">Watch movies on Glithflix!</p><br>
+        <p class="flicker-text typing-text" id="typed-glithflix"></p><br>
         <li><a href="glithflix.html" class="typing-text" title="">Glithflix</a></li>
-        <p class="flicker-text typing-text" id="typed-others">Pretty fucking self-explanatory, don't you think?</p><br>
+        <p class="flicker-text typing-text" id="typed-others"></p><br>
         <li><a href="Other.html" class="typing-text" title="">Others</a></li>
       </ul>
     </nav>
@@ -114,7 +97,7 @@
       if (i < elements.length) {
         typeWriter(elements[i].id, elements[i].text, 0, function() {
           i++;
-          startTyping();
+          startTyping(); // Call the next text after the current one finishes typing
         });
       }
     }
