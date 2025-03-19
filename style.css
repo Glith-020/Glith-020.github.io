@@ -141,7 +141,8 @@ p a::after {
 /* Monitor Container - Adjusted for Monitor Shape */
 .monitor-container {
   position: relative;
-  width: 80vw;  /* Adjust this for size */
+  width: 90vw;
+  max-width: 900px;
   height: calc(80vw * 9 / 16); /* Maintain 16:9 aspect ratio */
   background: #000; /* Black background to simulate turned-off monitor */
   display: flex;
