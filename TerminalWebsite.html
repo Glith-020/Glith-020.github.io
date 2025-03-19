@@ -1,116 +1,123 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <title>Terminal Website</title>
+
   <link rel="stylesheet" href="style.css">
+
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+
   <!-- Include jQuery -->
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    /* Ensure typing text is initially visible */
-    .typing-text {
-      font-family: 'VT323', monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #00ff00; /* Green cursor effect */
-    }
-  </style>
+
 </head>
+
 <body>
 
+
+
 <div class="terminal-window wrapper">
+
   <!-- CRT Overlay & Scanline -->
+
   <div class="overlay"></div>
+
   <div class="scanline"></div>
 
+
+
   <!-- Terminal Window Container -->
+
   <div class="content clearfix">
 
+
+
     <!-- Header -->
+
     <header class="site clearfix">
+
       <div class="col one">
+
         <img src="Chemical_Main-removebg-preview.png" alt="logo" id="logo-v">
+
       </div>
+
       <div class="col two">
-        <!-- Add the typing text here for each piece -->
-        <h4 class="typing-text flicker-text" id="typed-header"></h4>
-        <p class="flicker-text typing-text" id="typed-divider"></p>
-        <p class="flicker-text typing-text" id="typed-version"></p>
-        <p class="flicker-text typing-text" id="typed-copyright"></p>
-        <p class="flicker-text typing-text" id="typed-server"></p>
+
+        <h4 class="flicker-text">Glith_020 <br><b>E</b>nclave <b>C</b>hemical <b>C</b>orps (E.C.C.)</h4>
+
+        <p class="flicker-text">----------------------------------------</p>
+
+        <p class="flicker-text">E.C.C. Terminal v 1.0.0</p>
+
+        <p class="flicker-text">&copy; RichCo, 2024</p>
+
+        <p class="flicker-text">- Server 017 -</p>
+
       </div>
+
     </header>
 
+
+
     <!-- Navigation -->
+
     <nav class="site clear">
+
       <ul>
-        <li><a href="arch.html" class="typing-text" title="">Archives</a></li>
-        <p class="flicker-text typing-text" id="typed-logs"></p><br>
-        <li><a href="about.html" class="typing-text" title="">Logs</a></li>
-        <p class="flicker-text typing-text" id="typed-radio"></p><br>
-        <li><a href="radio.html" class="typing-text" title="">Radio</a></li>
-        <p class="flicker-text typing-text" id="typed-glithflix"></p><br>
-        <li><a href="glithflix.html" class="typing-text" title="">Glithflix</a></li>
-        <p class="flicker-text typing-text" id="typed-others"></p><br>
-        <li><a href="Other.html" class="typing-text" title="">Others</a></li>
+
+        <li><a href="arch.html" title="">Archives</a></li>
+
+        <p class="flicker-text"> </p><br>
+
+        <li><a href="about.html" title="">Logs</a></li>
+
+        <p class="flicker-text">Logs of Glith_020</p><br>
+
+        <li><a href="radio.html" title="">Radio</a></li>
+
+        <p class="flicker-text">Listen to the Radio</p><br>
+
+        <li><a href="glithflix.html" title="">Glithflix</a></li>
+
+        <p class="flicker-text">Watch movies on Glithflix!</p><br>
+
+        <li><a href="Other.html" title="">Others</a></li>
+
+        <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p><br>
+
       </ul>
+
     </nav>
 
+
+
     <p class="clear"><br></p>
+
   </div>
+
 </div>
 
+
+
 <!-- Optional JS -->
+
 <script>
-  $(document).ready(function() {
-    // Add the typing effect function
-    function typeWriter(element, text, i, callback) {
-      // Update the element with text incrementally
-      if (i < text.length) {
-        $(element).text(text.substring(0, i + 1)); // Display text up to the i-th character
-        i++;
-        setTimeout(function() {
-          typeWriter(element, text, i, callback);
-        }, 100); // Delay in ms for typing effect speed
-      } else if (callback) {
-        $(element).css('border-right', 'none'); // Remove the green cursor effect after typing is complete
-        callback(); // Move to the next text
-      }
-    }
 
-    // Add the typing effect for each element
-    const elements = [
-      { id: '#typed-header', text: 'Glith_020 \nEnclave Chemical Corps (E.C.C.)' },
-      { id: '#typed-divider', text: '----------------------------------------' },
-      { id: '#typed-version', text: 'E.C.C. Terminal v 1.0.0' },
-      { id: '#typed-copyright', text: '© RichCo, 2024' },
-      { id: '#typed-server', text: '- Server 017 -' },
-      { id: '#typed-logs', text: 'Logs of Glith_020' },
-      { id: '#typed-radio', text: 'Radio' },
-      { id: '#typed-glithflix', text: 'Watch movies on Glithflix!' },
-      { id: '#typed-others', text: 'Pretty fucking self-explanatory, don\'t you think?' }
-    ];
+  
 
-    // Sequentially type out the text
-    let i = 0;
-    function startTyping() {
-      if (i < elements.length) {
-        // Ensure the text container is visible before typing
-        $(elements[i].id).css('width', 'auto'); // Set the width to 'auto' so the text can be visible
-        $(elements[i].id).text(""); // Reset the content to empty before typing begins
 
-        // Start typing effect
-        typeWriter(elements[i].id, elements[i].text, 0, function() {
-          i++;
-          startTyping(); // Call the next text after the current one finishes typing
-        });
-      }
-    }
-    
-    startTyping();
-  });
 </script>
 
+
+
 </body>
+
 </html>
