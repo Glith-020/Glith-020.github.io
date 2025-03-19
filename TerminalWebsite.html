@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <style>
-    /* Hides content initially */
+    /* Content hidden initially */
     .content {
       opacity: 0;
       transition: opacity 1s ease;
@@ -18,17 +18,17 @@
       pointer-events: auto;
     }
 
-    /* Typing loader wrapper */
+    /* Typing loader fullscreen wrapper */
     .typing-wrapper {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: #0f1b0f;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: #0f1b0f;
-      color: #00ff00;
-      font-family: 'VT323', monospace;
-      font-size: 1.6em;
-      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
     }
 
     .typing-loader {
@@ -37,7 +37,11 @@
       border-right: 2px solid #00ff00;
       width: 0;
       display: inline-block;
-      animation: type 2.5s steps(30, end) forwards, blink 1s step-end infinite;
+      color: #00ff00;
+      font-family: 'VT323', monospace;
+      font-size: 1.6em;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+      animation: type 4s steps(35, end) forwards, blink 1s step-end infinite;
     }
 
     @keyframes type { from { width: 0 } to { width: 100% } }
@@ -46,7 +50,7 @@
 </head>
 <body>
 
-  <!-- Typing loader screen -->
+  <!-- Typing Loader Fullscreen -->
   <div class="typing-wrapper" id="loader-screen">
     <span class="typing-loader">Initializing Terminal Access...</span>
   </div>
@@ -75,20 +79,15 @@
       <nav class="site clear">
         <ul>
           <li><a href="arch.html">Archives</a></li>
-          <p class="flicker-text"> </p>
-          <br>
+          <p class="flicker-text"> </p><br>
           <li><a href="about.html">Logs</a></li>
-          <p class="flicker-text">Logs of Glith_020</p>
-          <br>
+          <p class="flicker-text">Logs of Glith_020</p><br>
           <li><a href="radio.html">Radio</a></li>
-          <p class="flicker-text">Radio</p>
-          <br>
+          <p class="flicker-text">Radio</p><br>
           <li><a href="glithflix.html">Glithflix</a></li>
-          <p class="flicker-text">Watch movies on Glithflix!</p>
-          <br>
+          <p class="flicker-text">Watch movies on Glithflix!</p><br>
           <li><a href="Other.html">Others</a></li>
-          <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p>
-          <br>
+          <p class="flicker-text">Pretty fucking self-explanatory, don't you think?</p><br>
         </ul>
       </nav>
 
@@ -96,18 +95,17 @@
     </div>
   </div>
 
-  <!-- JS: Delay display transition -->
+  <!-- JS: Control Loader Timing -->
   <script>
-    // Delay for loader + fade-in content
     window.addEventListener('DOMContentLoaded', () => {
       const loader = document.getElementById('loader-screen');
       const content = document.getElementById('main-content');
 
-      // Change delay here (e.g., 3500 = 3.5 seconds)
+      // Match the typing animation (4s) + extra buffer
       setTimeout(() => {
-        loader.style.display = 'none';           // Hide typing screen
-        content.classList.add('visible');        // Show terminal content
-      }, 3500);
+        loader.style.display = 'none';
+        content.classList.add('visible');
+      }, 5000); // 5 seconds total
     });
   </script>
 
