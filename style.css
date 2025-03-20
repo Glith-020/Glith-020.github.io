@@ -58,13 +58,13 @@
 }
 
 html, body {
-  background: #0f1b0f;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
   color: #00ff00;
   font-family: 'VT323', monospace;
   font-size: 1.4em;
   margin: 0;
   padding: 0;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  text-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00;
   overflow-x: hidden;
   scroll-behavior: smooth;
   height: 100vh;
@@ -72,7 +72,14 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Subtle brushed metal texture overlay */
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px),
+    linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  background-blend-mode: overlay, normal;
 }
+
 
 img {
   max-width: 100%;
