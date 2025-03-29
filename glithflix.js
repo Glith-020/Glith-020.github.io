@@ -24,7 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'flesh2.png', // Use the appropriate image path here
             link: 'fleshpit2.html' // Update the link to the page for The Flesh Pit movie
         },
-        
+         {
+            title: 'SCP: TESTS',
+            description: 'Footage of multiple events going around the S.C.P. Facility.',
+            image: 'SCP TESTS.png', // Use the appropriate image path here
+            link: 'series.html' // Update the link to the page for The Flesh Pit movie
+        },
         // You can add more movie objects here if needed
     ];
 
