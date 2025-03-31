@@ -62,6 +62,13 @@
                     </div>
                     <button class="play-button" onclick="playEpisode('episode2')">Play</button>
                 </li>
+                 <li>
+                    <div class="episode-info">
+                        <h3>Episode 3: Chaos Reigns</h3>
+                        <p>Duration: 11m</p>
+                    </div>
+                    <button class="play-button" onclick="playEpisode('episode3')">Play</button>
+                </li>
                 <!-- Repeat for additional episodes -->
             </ul>
         </section>
@@ -76,21 +83,24 @@
 
     <script src="glithflix.js"></script>
     <script>
-        function playEpisode(episodeId) {
-            const videoPlayer = document.getElementById('videoPlayer');
-            const iframe = document.getElementById('episodeEmbed');
+      function playEpisode(episodeId) {
+    const videoPlayer = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('episodeEmbed');
 
-            // Show the video player
-            videoPlayer.style.display = 'block';
+    // Show the video player
+    videoPlayer.style.display = 'block';
 
-            // Set the correct video source based on the episodeId
-            if (episodeId === 'episode1') {
-                iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
-            }else if (episodeId === 'episode2') {
-            iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview"; // Replace with actual link
-        }
-            // Add additional conditions for other episodes
-        }
+    // Set the correct video source based on the episodeId
+    if (episodeId === 'episode1') {
+        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+    } else if (episodeId === 'episode2') {
+        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+    } else if (episodeId === 'episode3') {
+        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview"; // Replace YOUR_EPISODE_3_ID with the actual ID
+    }
+    // Add additional conditions for other episodes as needed
+}
+
     </script>
 </body>
 </html>
