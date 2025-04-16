@@ -39,7 +39,7 @@
                 </p>
                 <div class="series-cast">
                     <p><strong>Cast:</strong> Dave Miller, Glith Rylan Wynter, LMGWOLF, Schnitzel, Petter, WuthKah, StarmanPapa</p>
-                    <p><strong>Director:</strong>Dave Miller, Glith Rylan Wynter</p>
+                    <p><strong>Director:</strong> Dave Miller, Glith Rylan Wynter</p>
                 </div>
             </div>
         </section>
@@ -62,14 +62,14 @@
                     </div>
                     <button class="play-button" onclick="playEpisode('episode2')">Play</button>
                 </li>
-                 <li>
+                <li>
                     <div class="episode-info">
                         <h3>Episode 3: Chaos Reigns</h3>
                         <p>Duration: 11m</p>
                     </div>
                     <button class="play-button" onclick="playEpisode('episode3')">Play</button>
                 </li>
-                   <li>
+                <li>
                     <div class="episode-info">
                         <h3>Episode 4: O5 in Danger</h3>
                         <p>Duration: 12m</p>
@@ -83,33 +83,36 @@
         <!-- Video Player Section -->
         <section class="video-player" id="videoPlayer" style="display: none;">
             <div class="video-container">
-                <iframe id="episodeEmbed" allow="autoplay"></iframe>
+                <iframe id="episodeEmbed"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                        webkitallowfullscreen
+                        mozallowfullscreen>
+                </iframe>
             </div>
         </section>
     </main>
 
     <script src="glithflix.js"></script>
     <script>
-      function playEpisode(episodeId) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const iframe = document.getElementById('episodeEmbed');
+        function playEpisode(episodeId) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const iframe = document.getElementById('episodeEmbed');
 
-    // Show the video player
-    videoPlayer.style.display = 'block';
+            // Show the video player
+            videoPlayer.style.display = 'block';
 
-    // Set the correct video source based on the episodeId
-    if (episodeId === 'episode1') {
-        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
-    } else if (episodeId === 'episode2') {
-        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
-    } else if (episodeId === 'episode3') {
-        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview"; // Replace YOUR_EPISODE_3_ID with the actual ID
-    } else if (episodeId === 'episode4') {
-        iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview"; // Replace YOUR_EPISODE_3_ID with the actual ID
-    }
-    // Add additional conditions for other episodes as needed
-}
-
+            // Set the correct video source based on the episodeId
+            if (episodeId === 'episode1') {
+                iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+            } else if (episodeId === 'episode2') {
+                iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+            } else if (episodeId === 'episode3') {
+                iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
+            } else if (episodeId === 'episode4') {
+                iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+            }
+        }
     </script>
 </body>
 </html>
