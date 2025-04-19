@@ -103,26 +103,26 @@
     <script src="glithflix.js"></script>
     <script>
         function playEpisode(episodeId) {
-            const videoPlayer = document.getElementById('videoPlayer');
-            const iframe = document.getElementById('episodeEmbed');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('episodeEmbed');
 
-            // Show the video player
-            videoPlayer.style.display = 'block';
+    // Show the video player
+    videoPlayer.style.display = 'block';
 
-            // Set the correct video source based on the episodeId
-            if (episodeId === 'episode1') {
-                iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
-            } else if (episodeId === 'episode2') {
-                iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
-            } else if (episodeId === 'episode3') {
-                iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
-            } else if (episodeId === 'episode4') {
-                iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
-            }
-            } else if (episodeId === 'episode5') {
-                iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
-            }
-        }
+    // Set the correct video source based on the episodeId
+    if (episodeId === 'episode1') {
+        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+    } else if (episodeId === 'episode2') {
+        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+    } else if (episodeId === 'episode3') {
+        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
+    } else if (episodeId === 'episode4') {
+        iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+    } else if (episodeId === 'episode5') {
+        iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
+    }
+}
+
     </script>
 </body>
 </html>
