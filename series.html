@@ -76,6 +76,13 @@
                     </div>
                     <button class="play-button" onclick="playEpisode('episode4')">Play</button>
                 </li>
+                 <li>
+                    <div class="episode-info">
+                        <h3>Episode 5: New Beginnings</h3>
+                        <p>Duration: 9m 35s</p>
+                    </div>
+                    <button class="play-button" onclick="playEpisode('episode5')">Play</button>
+                </li>
                 <!-- Repeat for additional episodes -->
             </ul>
         </section>
@@ -111,6 +118,9 @@
                 iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
             } else if (episodeId === 'episode4') {
                 iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+            }
+            } else if (episodeId === 'episode5') {
+                iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
             }
         }
     </script>
