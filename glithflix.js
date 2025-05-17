@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const movies = [
         {
-            title: 'ECC GAMES',
-            description: 'The Enclave Chemical Corps plays with the poor and whoever survives, wins big money.',
+            title: 'Brotherhood vs Enclave',
+            description: 'A recording of a battle between two factions of the fallout universe.',
             image: 'image.png',
-            link: 'comingsoon.html'
+            link: 'battle.html'
         },
         {
             title: 'THE FLESH PIT',
