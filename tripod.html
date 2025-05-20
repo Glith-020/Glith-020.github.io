@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIUMPH OF THE TRIPODS - Glithflix</title>
+    <link rel="stylesheet" href="games.css">
+    <link rel="icon" type="image/png" href="G.png">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="glithflix.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="movie-detail">
+            <div class="movie-poster">
+                <img src="flesh2.png" alt="Movie Title Poster">
+            </div>
+            <div class="movie-info">
+                <h1>TRIUMPH OF THE TRIPODS</h1>
+                <p class="movie-meta">2025 | PG-13 rating | 6m 13s | Horror</p>
+                <p class="movie-description">
+                    A short format film about War of The Worlds.
+                </p>
+                <div class="movie-actions">
+                    <button class="play-button" onclick="playVideo('movie')">Play</button>
+                </div>
+                <div class="movie-cast">
+                    <p><strong>Cast:</strong> Glith Rylan Wynter, Justy, Wuth</p>
+                    <p><strong>Director:</strong> Glith Rylan Wynter</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Player Section -->
+        <section class="video-player" id="videoPlayer" style="display: none;">
+            <div class="video-container">
+                <iframe id="movieEmbed" allow="autoplay; fullscreen"
+                        allowfullscreen
+                        webkitallowfullscreen
+                        mozallowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="games.js"></script>
+    <script>
+        function playVideo(type) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const iframe = document.getElementById('movieEmbed');
+
+            // Show the video player
+            videoPlayer.style.display = 'block';
+
+            // Set the correct video source
+            if (type === 'movie') {
+                iframe.src = "https://drive.google.com/file/d/1O58GtmLU62koYbRGNcMcUVH_88gfQA1b/preview";
+            } 
+        }
+    </script>
+</body>
+</html>
