@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'SCP TESTS.png', // Use the appropriate image path here
             link: 'series.html' // Update the link to the page for The Flesh Pit movie
         },
+        {
+            title: 'TRIUMPH OF THE TRIPODS',
+            description: 'A short format film about War of The Worlds',
+            image: 'New Project (50).png', // Use the appropriate image path here
+            link: 'tripod.html' // Update the link to the page for The Flesh Pit movie
+        },
         // You can add more movie objects here if needed
     ];
 
