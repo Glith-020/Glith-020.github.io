@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'New Project (50).png', // Use the appropriate image path here
             link: 'tripod.html' // Update the link to the page for The Flesh Pit movie
         },
+          {
+            title: 'THE SURFACE',
+            description: 'In a world where the ground is scorched and the heavens no longer hear our cries, the angels walk among the ruins not as guardians, but as hunters, sent to erase what God has abandoned. The cities lie silent beneath ash-choked skies, their spires broken like the promises once whispered in prayer.',
+            image: 'cfewcrfew.png',
+            link: 'surface.html'
+        },
         // You can add more movie objects here if needed
     ];
 
