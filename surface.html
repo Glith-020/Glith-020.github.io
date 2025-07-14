@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SURFACE - Glithflix</title>
+    <link rel="stylesheet" href="games.css">
+    <link rel="icon" type="image/png" href="G.png">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="glithflix.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="movie-detail">
+            <div class="movie-poster">
+                <img src="cfewcrfew.png" alt="Movie Title Poster">
+            </div>
+            <div class="movie-info">
+                <h1>THE SURFACE</h1>
+                <p class="movie-meta">2025 | PG-13 rating | 36m 43s | Horror Post-Apocalyptic</p>
+                <p class="movie-description">
+                    In a world where the ground is scorched and the heavens no longer hear our cries, the angels walk among the ruins not as guardians, but as hunters, sent to erase what God has abandoned. The cities lie silent beneath ash-choked skies, their spires broken like the promises once whispered in prayer.
+                </p>
+                <div class="movie-actions">
+                    <button class="play-button" onclick="playVideo('movie')">Play</button>
+                </div>
+                <div class="movie-cast">
+                    <p><strong>Cast:</strong> Glith Rylan Wynter, Richard, Wuth, Petter, Darvin</p>
+                    <p><strong>Director:</strong> Glith Rylan Wynter, Richard</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Player Section -->
+        <section class="video-player" id="videoPlayer" style="display: none;">
+            <div class="video-container">
+                <iframe id="movieEmbed" allow="autoplay; fullscreen"
+                        allowfullscreen
+                        webkitallowfullscreen
+                        mozallowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="games.js"></script>
+    <script>
+        function playVideo(type) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const iframe = document.getElementById('movieEmbed');
+
+            // Show the video player
+            videoPlayer.style.display = 'block';
+
+            // Set the correct video source
+            if (type === 'movie') {
+                iframe.src = "https://drive.google.com/file/d/1IYujmhD8rNS-E3rtpBxyAD2bsIJZqUwR/preview";
+            } 
+        }
+    </script>
+</body>
+</html>
