@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "data": {
+    "name": "E.C.C. Terminal",
+    "version": "1.0.0",
+    "owner": "RichCo",
+    "server": "017",
+    "logo": "https://glith-020.github.io/Chemical_Main-removebg-preview.png",
+    "commands": [
+      {
+        "name": "Archives",
+        "url": "https://glith-020.github.io/arch.html",
+        "description": "Access the archives"
+      },
+      {
+        "name": "Logs",
+        "url": "https://glith-020.github.io/about.html",
+        "description": "Logs of Glith_020"
+      },
+      {
+        "name": "Radio",
+        "url": "https://glith-020.github.io/radio.html",
+        "description": "Listen to the Radio"
+      },
+      {
+        "name": "Glithflix",
+        "url": "https://glith-020.github.io/glithflix.html",
+        "description": "Watch movies on Glithflix!"
+      },
+      {
+        "name": "Others",
+        "url": "https://glith-020.github.io/Other.html",
+        "description": "Pretty self-explanatory, don't you think?"
+      }
+    ]
+  }
+}
