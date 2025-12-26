@@ -16,56 +16,65 @@ body {
 }
 
 /* Header */
+/* Header */
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #000;
+    padding: 15px 4%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
     position: fixed;
     top: 0;
     width: 100%;
+    box-sizing: border-box;
     z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* Logo */
 .logo {
-    width: 100px;
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 /* Navigation Menu */
-nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
-}
-
 nav ul {
     list-style: none;
     display: flex;
+    gap: 5px;
     padding: 0;
-    margin-left: 20px; /* Moves menu closer to the left */
-    white-space: nowrap;
-    overflow-x: auto;
-}
-
-nav li {
-    display: inline-block;
     margin: 0;
 }
 
 nav a {
     display: inline-block;
     text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    padding: 14px 16px;
-    transition: color 0.3s ease;
-    white-space: nowrap;
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 nav a:hover {
-    color: #e50914; /* Netflix hover color */
+    color: #fff;
+    background-color: rgba(229, 9, 20, 0.1);
+}
+
+nav a.active {
+    color: #fff;
+    font-weight: 700;
 }
 /* Main Content */
 main {
@@ -237,6 +246,19 @@ main {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 12px 3%;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
     .series-detail {
         flex-direction: column;
         align-items: center;
@@ -252,21 +274,16 @@ main {
     .series-poster img {
         max-width: 80%;
     }
+}
 
-    nav {
-        max-width: 100%;
-    }
-
+@media (max-width: 480px) {
     nav ul {
-        margin-left: 10px;
-        overflow-x: auto;
-        display: flex;
-        flex-wrap: nowrap;
-        width: 100%;
+        gap: 2px;
     }
 
     nav a {
-        padding: 10px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
 }
 /* Main Page Scrollbar Styling */
@@ -326,15 +343,17 @@ main {
     </div>
 
     <header>
+    <a href="glithflix.html" aria-label="Glithflix Home">
         <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="glithflix.html">Home</a></li>
-                <li><a href="Latest.html">Latest</a></li>
-                <li><a href="https://discord.gg/aQwSqz3AWP">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
+    </a>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="glithflix.html">Home</a></li>
+            <li><a href="Latest.html">Latest</a></li>
+            <li><a href="https://discord.gg/aQwSqz3AWP">Discord</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <!-- Series Detail Section -->
@@ -465,6 +484,21 @@ window.addEventListener('scroll', () => {
 
 backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+// Header scroll effect
+let lastScroll = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
 });
     </script>
 </body>
