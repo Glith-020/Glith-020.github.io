@@ -431,75 +431,77 @@ main {
     </main>
     <button id="backToTop" style="display: none;">▲</button>
 
-    <script src="glithflix.js"></script>
     <script>
-        function playEpisode(episodeId) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const iframe = document.getElementById('episodeEmbed');
+    function playEpisode(episodeId) {
+        const videoPlayer = document.getElementById('videoPlayer');
+        const iframe = document.getElementById('episodeEmbed');
 
-    // Show the video player
-    videoPlayer.style.display = 'block';
-    
-    // Smooth scroll to video player
-    setTimeout(() => {
-        videoPlayer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-
-    // Set the correct video source based on the episodeId
-    if (episodeId === 'episode1') {
-        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
-    } else if (episodeId === 'episode2') {
-        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
-    } else if (episodeId === 'episode3') {
-        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
-    } else if (episodeId === 'episode4') {
-        iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
-    } else if (episodeId === 'episode5') {
-        iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
-    }
-}
-// Hide loading screen when page loads
-window.addEventListener('load', function() {
-    const loadingScreen = document.querySelector('.loading-screen');
-    if (loadingScreen) {
+        // Show the video player
+        videoPlayer.style.display = 'block';
+        
+        // Smooth scroll to video player
         setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            loadingScreen.style.transition = 'opacity 0.5s ease';
+            videoPlayer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+
+        // Set the correct video source based on the episodeId
+        if (episodeId === 'episode1') {
+            iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+        } else if (episodeId === 'episode2') {
+            iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+        } else if (episodeId === 'episode3') {
+            iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
+        } else if (episodeId === 'episode4') {
+            iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+        } else if (episodeId === 'episode5') {
+            iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
+        }
+    }
+
+    // Hide loading screen when page loads
+    window.addEventListener('load', function() {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) {
             setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 1000);
-    }
-});
-// Back to top button
-const backToTopBtn = document.getElementById('backToTop');
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        }
+    });
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.style.display = 'block';
-    } else {
-        backToTopBtn.style.display = 'none';
-    }
-});
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-// Header scroll effect
-let lastScroll = 0;
-const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
-    </script>
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+</script>
 </body>
 </html>
