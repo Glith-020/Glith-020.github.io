@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glithflix</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* Better alignment */
+    align-items: center;
+    padding: 15px 4%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+    backdrop-filter: blur(10px); /* Modern glass effect */
+}
+
+.logo {
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px; /* Modern gap instead of margins */
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: rgba(229, 9, 20, 0.1);
+}
+
+nav a.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+        0deg, 
+        rgba(20, 20, 20, 1) 0%, 
+        rgba(20, 20, 20, 0.7) 40%,
+        rgba(20, 20, 20, 0) 100%
+    );
+    z-index: 1;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 80px;
+    left: 4%;
+    max-width: 500px;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    color: #e5e5e5;
+}
+/* .hero-content .button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+} */
+
+/* Movie Section */
+.movie-section {
+    padding: 40px 4%;
+    background-color: #141414;
+}
+
+.movie-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #e5e5e5;
+}
+
+.movie-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 12px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    scroll-padding: 4%;
+}
+
+.movie {
+    min-width: 180px;
+    flex-shrink: 0;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.movie:hover {
+    transform: scale(1.08) translateY(-8px);
+    z-index: 10;
+}
+
+.movie img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.3s ease;
+}
+
+.movie:hover img {
+    box-shadow: 0 8px 24px rgba(229, 9, 20, 0.4);
+}
+
+.movie h3 {
+    font-size: 1rem;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie .button {
+    display: inline-block;
+    background-color: rgba(229, 9, 20, 0.9);
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.movie:hover .button {
+    opacity: 1;
+}
+
+.movie .button:hover {
+    background-color: #e50914;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+}
+
+/* Scrollbar Styling */
+.movie-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.movie-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #e50914, #f40612);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.movie-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #f40612, #ff1a1a);
+}
+
+.movie-container::-webkit-scrollbar-track {
+    background-color: rgba(51, 51, 51, 0.5);
+    border-radius: 10px;
+    margin: 0 4%;
+}
+
+/* General Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e50914;
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.button:hover {
+    background-color: #f40612;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+/* Coming Soon Section */
+.coming-soon {
+    padding: 40px;
+    text-align: center;
+}
+
+.coming-soon-banner {
+    background-color: #333;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.coming-soon h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.coming-soon p {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+/* Movie Info Section */
+.movie-info {
+    text-align: left;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.movie-info h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.movie-description {
+    margin: 10px 0;
+}
+
+.movie-actions {
+    margin-top: 20px;
+}
+
+/* Disabled Button */
+button[disabled] {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+button[disabled]:hover {
+    background-color: #666;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-screen .logo {
+    width: 180px;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #e50914;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 3%;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        height: 50vh;
+        margin-top: 60px;
+    }
+
+    .hero-content {
+        max-width: 85%;
+        bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .hero-content .button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .movie {
+        min-width: 140px;
+    }
+
+    .movie img {
+        height: 210px;
+    }
+
+    .movie-section {
+        padding: 30px 3%;
+    }
+
+    .movie-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.85rem;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+    </style>
+   <link rel="icon" type="image/png" href="G.png">
+    
+    
+    <!-- Open Graph Meta Tags (Facebook, Messenger, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WATCH GLITHFLIX TODAY!">
+    <meta property="og:description" content="Home page.">
+    <meta property="og:image" content="https://glith-020.github.io/Logonetflix.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://glith-020.github.io/glithflix.html">
+    
+    <!-- Twitter Card Meta Tags (for Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WATCH GLITHFLIX TODAY!">
+    <meta name="twitter:description" content="Home page.">
+    <meta name="twitter:image" content="https://glith-020.github.io/Logonetflix.png">
+    <meta name="twitter:image:alt" content="Glithflix Logo">
+    
+    <!-- Theme Color (for browser/mobile embeds) -->
+    <meta name="theme-color" 
+content="#E50914">
+</head>
+<body>
+    <div class="loading-screen">
+        <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="glithflix.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="SCP TESTS.png" alt="Featured Content">
+            <div class="hero-content">
+                <h1>SCP: TESTS</h1>
+                <p>Footage of multiple events going around the S.C.P. Facility.</p>
+                <a href="series.html" class="button">Watch Now</a>
+            </div>
+        </section>
+        <section class="movie-section">
+            <h2>Movies</h2>
+            <div class="movie-container" id="popular-movies">
+                <!-- Movies will be injected here by JavaScript -->
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM is fully loaded");
+    const popularMoviesContainer = document.getElementById('popular-movies');
+    if (!popularMoviesContainer) {
+        console.error("The 'popular-movies' container doesn't exist.");
+    }
+
+    const movies = [
+        {
+            title: 'Brotherhood vs Enclave',
+            description: 'A recording of a battle between two factions of the fallout universe.',
+            image: 'image.png',
+            link: 'battle.html'
+        },
+        {
+            title: 'THE FLESH PIT',
+            description: 'A short movie about the dangers of the Mystery Flesh Pit National Park.',
+            image: 'FLESHB.png', // Use the appropriate image path here
+            link: 'THE FLESH PIT.html' // Update the link to the page for The Flesh Pit movie
+        },
+        {
+            title: 'THE FLESH PIT 2',
+            description: 'A group of rangers notices a dissapearance and goes deep down to discover the truth.',
+            image: 'flesh2.png', // Use the appropriate image path here
+            link: 'fleshpit2.html' // Update the link to the page for The Flesh Pit movie
+        },
+         {
+            title: 'SCP: TESTS',
+            description: 'Footage of multiple events going around the S.C.P. Facility.',
+            image: 'SCP TESTS.png', // Use the appropriate image path here
+            link: 'series.html' // Update the link to the page for The Flesh Pit movie
+        },
+        {
+            title: 'TRIUMPH OF THE TRIPODS',
+            description: 'A short format film about War of The Worlds',
+            image: 'New Project (50).png', // Use the appropriate image path here
+            link: 'tripod.html' // Update the link to the page for The Flesh Pit movie
+        },
+          {
+            title: 'THE SURFACE',
+            description: 'In a world where the ground is scorched and the heavens no longer hear our cries, the angels walk among the ruins not as guardians, but as hunters, sent to erase what God has abandoned. The cities lie silent beneath ash-choked skies, their spires broken like the promises once whispered in prayer.',
+            image: 'cfewcrfew.png',
+            link: 'surface.html'
+        },
+        // You can add more movie objects here if needed
+    ];
+
+    function displayMovies(movies) {
+        popularMoviesContainer.innerHTML = ''; 
+        movies.forEach(movie => {
+            const movieDiv = document.createElement('div');
+            movieDiv.classList.add('movie');
+            
+            const movieImg = document.createElement('img');
+            movieImg.src = movie.image;
+            movieImg.alt = movie.title;
+            
+            const movieTitle = document.createElement('h3');
+            movieTitle.textContent = movie.title;
+            
+            const watchNowButton = document.createElement('a');
+            watchNowButton.href = movie.link;
+            watchNowButton.textContent = 'Watch Now';
+            watchNowButton.classList.add('button');
+            
+            movieDiv.appendChild(movieImg);
+            movieDiv.appendChild(movieTitle);
+            movieDiv.appendChild(watchNowButton);
+            popularMoviesContainer.appendChild(movieDiv);
+        });
+    }
+
+    displayMovies(movies);
+});
+window.addEventListener('load', function() {
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
+    } else {
+        console.error('Loading screen element not found.');
+    }
+});
+    </script>
+</body>
+</html>
