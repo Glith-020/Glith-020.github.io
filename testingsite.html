@@ -145,16 +145,17 @@ nav a.active {
 
 /* Movie Section */
 /* Movie Section */
+/* Movie Section */
 .movie-section {
-    padding: 40px 4%; /* Remove overflow: hidden */
+    padding: 40px 4%;
     background-color: #141414;
-    /* Remove: overflow: hidden; */
+    /* No overflow hidden */
 }
 
 .movie-section h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 30px; /* CHANGE FROM 20px to 30px - more space */
+    margin-bottom: 50px; /* CHANGE FROM 20px to 50px - much more space */
     color: #e5e5e5;
     position: relative;
     z-index: 1;
@@ -163,10 +164,10 @@ nav a.active {
 .movie-container {
     display: flex;
     overflow-x: auto;
-    overflow-y: visible; /* CHANGE FROM hidden to visible */
+    overflow-y: visible; /* Must be visible */
     gap: 12px;
     padding-bottom: 20px;
-    padding-top: 15px; /* CHANGE FROM 10px to 15px - more space */
+    padding-top: 25px; /* CHANGE FROM 10px to 25px */
     padding-left: 12px;
     padding-right: 12px;
     scroll-behavior: smooth;
@@ -179,13 +180,13 @@ nav a.active {
     text-align: left;
     cursor: pointer;
     transition: transform 0.3s ease;
-    position: relative; /* ADD THIS */
-    z-index: 5; /* ADD THIS - normal state z-index */
+    position: relative;
+    z-index: 5;
 }
 
 .movie:hover {
     transform: scale(1.08) translateY(-8px);
-    z-index: 10; /* This stays the same - raised on hover */
+    z-index: 10;
 }
 
 .movie img {
