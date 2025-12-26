@@ -1,4 +1,4 @@
-/* Global Styles */
+        /* Global Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -8,56 +8,65 @@ body {
 }
 
 /* Header */
+/* Header */
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #000;
+    padding: 15px 4%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
     position: fixed;
     top: 0;
     width: 100%;
+    box-sizing: border-box;
     z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* Logo */
 .logo {
-    width: 100px;
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 /* Navigation Menu */
-nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow-x: auto;
-}
-
 nav ul {
     list-style: none;
     display: flex;
+    gap: 5px;
     padding: 0;
-    margin-left: 20px; /* Moves menu closer to the left */
-    white-space: nowrap;
-    overflow-x: auto;
-}
-
-nav li {
-    display: inline-block;
     margin: 0;
 }
 
 nav a {
     display: inline-block;
     text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    padding: 14px 16px;
-    transition: color 0.3s ease;
-    white-space: nowrap;
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 nav a:hover {
-    color: #e50914; /* Netflix hover color */
+    color: #fff;
+    background-color: rgba(229, 9, 20, 0.1);
+}
+
+nav a.active {
+    color: #fff;
+    font-weight: 700;
 }
 /* Main Content */
 main {
@@ -120,12 +129,21 @@ main {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.episode-list li:hover {
+    background-color: #2a2a2a;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
 }
 
 .episode-info {
     flex: 1;
     text-align: left;
 }
+
 
 .play-button {
     background-color: #e50914;
@@ -220,6 +238,19 @@ main {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 12px 3%;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
     .series-detail {
         flex-direction: column;
         align-items: center;
@@ -235,20 +266,62 @@ main {
     .series-poster img {
         max-width: 80%;
     }
+}
 
-    nav {
-        max-width: 100%;
-    }
-
+@media (max-width: 480px) {
     nav ul {
-        margin-left: 10px;
-        overflow-x: auto;
-        display: flex;
-        flex-wrap: nowrap;
-        width: 100%;
+        gap: 2px;
     }
 
     nav a {
-        padding: 10px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
+}
+/* Main Page Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #141414;
+    border-left: 1px solid #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #e50914, #b20710);
+    border-radius: 6px;
+    border: 2px solid #141414;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f40612, #e50914);
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #e50914 #141414;
+}
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+}
+
+#backToTop:hover {
+    background-color: #f40612;
+    transform: translateY(-3px);
 }
