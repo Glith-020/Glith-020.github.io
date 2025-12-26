@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCP TESTING - Glithflix</title>
-    <link rel="stylesheet" href="series.css">
     <link rel="icon" type="image/png" href="G.png">
+    <link rel="stylesheet" href="series.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -15,15 +15,17 @@
     </div>
 
     <header>
+    <a href="glithflix.html" aria-label="Glithflix Home">
         <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="glithflix.html">Home</a></li>
-                <li><a href="Latest.html">Latest</a></li>
-                <li><a href="https://discord.gg/aQwSqz3AWP">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
+    </a>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="glithflix.html">Home</a></li>
+            <li><a href="Latest.html">Latest</a></li>
+            <li><a href="https://discord.gg/aQwSqz3AWP">Discord</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <!-- Series Detail Section -->
@@ -45,47 +47,47 @@
         </section>
 
         <!-- Episode List Section -->
-        <section class="episode-list">
-            <h2>Episodes</h2>
-            <ul>
-                <li>
-                    <div class="episode-info">
-                        <h3>Episode 1: SCP-087</h3>
-                        <p>Duration: 4m</p>
-                    </div>
-                    <button class="play-button" onclick="playEpisode('episode1')">Play</button>
-                </li>
-                <li>
-                    <div class="episode-info">
-                        <h3>Episode 2: SCP-002</h3>
-                        <p>Duration: 32m</p>
-                    </div>
-                    <button class="play-button" onclick="playEpisode('episode2')">Play</button>
-                </li>
-                <li>
-                    <div class="episode-info">
-                        <h3>Episode 3: Chaos Reigns</h3>
-                        <p>Duration: 11m</p>
-                    </div>
-                    <button class="play-button" onclick="playEpisode('episode3')">Play</button>
-                </li>
-                <li>
-                    <div class="episode-info">
-                        <h3>Episode 4: O5 in Danger</h3>
-                        <p>Duration: 12m</p>
-                    </div>
-                    <button class="play-button" onclick="playEpisode('episode4')">Play</button>
-                </li>
-                 <li>
-                    <div class="episode-info">
-                        <h3>Episode 5: New Beginnings</h3>
-                        <p>Duration: 9m 35s</p>
-                    </div>
-                    <button class="play-button" onclick="playEpisode('episode5')">Play</button>
-                </li>
-                <!-- Repeat for additional episodes -->
-            </ul>
-        </section>
+        <!-- Episode List Section -->
+<section class="episode-list">
+    <h2>Episodes</h2>
+    <ul>
+        <li onclick="playEpisode('episode1')">
+            <div class="episode-info">
+                <h3>Episode 1: SCP-087</h3>
+                <p>Duration: 4m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode2')">
+            <div class="episode-info">
+                <h3>Episode 2: SCP-002</h3>
+                <p>Duration: 32m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode3')">
+            <div class="episode-info">
+                <h3>Episode 3: Chaos Reigns</h3>
+                <p>Duration: 11m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode4')">
+            <div class="episode-info">
+                <h3>Episode 4: O5 in Danger</h3>
+                <p>Duration: 12m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode5')">
+            <div class="episode-info">
+                <h3>Episode 5: New Beginnings</h3>
+                <p>Duration: 9m 35s</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+    </ul>
+</section>
 
         <!-- Video Player Section -->
         <section class="video-player" id="videoPlayer" style="display: none;">
@@ -99,30 +101,79 @@
             </div>
         </section>
     </main>
+    <button id="backToTop" style="display: none;">▲</button>
 
-    <script src="glithflix.js"></script>
     <script>
-        function playEpisode(episodeId) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const iframe = document.getElementById('episodeEmbed');
+    function playEpisode(episodeId) {
+        const videoPlayer = document.getElementById('videoPlayer');
+        const iframe = document.getElementById('episodeEmbed');
 
-    // Show the video player
-    videoPlayer.style.display = 'block';
+        // Show the video player
+        videoPlayer.style.display = 'block';
+        
+        // Smooth scroll to video player
+        setTimeout(() => {
+            videoPlayer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
 
-    // Set the correct video source based on the episodeId
-    if (episodeId === 'episode1') {
-        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
-    } else if (episodeId === 'episode2') {
-        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
-    } else if (episodeId === 'episode3') {
-        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
-    } else if (episodeId === 'episode4') {
-        iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
-    } else if (episodeId === 'episode5') {
-        iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
+        // Set the correct video source based on the episodeId
+        if (episodeId === 'episode1') {
+            iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+        } else if (episodeId === 'episode2') {
+            iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+        } else if (episodeId === 'episode3') {
+            iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
+        } else if (episodeId === 'episode4') {
+            iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+        } else if (episodeId === 'episode5') {
+            iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
+        }
     }
-}
 
-    </script>
+    // Hide loading screen when page loads
+    window.addEventListener('load', function() {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) {
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        }
+    });
+
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+</script>
 </body>
 </html>
