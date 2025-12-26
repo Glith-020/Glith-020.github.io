@@ -3,265 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch exclusive movies and series on Glithflix. Stream SCP: Tests, The Flesh Pit, and more original content.">
-    <title>Glithflix</title>
+    <title>SCP TESTING - Glithflix</title>
+    <link rel="icon" type="image/png" href="G.png">
     <style>
-        html {
-    scroll-behavior: smooth;
-}
-        body {
+        /* Global Styles */
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #141414;
     color: #fff;
-    padding-top: 70px; /* Add space for header */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-body.scrolled {
-    padding-top: 0; /* Remove padding when scrolled */
-}
-
-/* Header */
 /* Header */
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 4%;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
-    position: absolute; /* Changed from fixed */
+    padding: 20px;
+    background-color: #000;
+    position: fixed;
     top: 0;
     width: 100%;
-    box-sizing: border-box;
     z-index: 100;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
 }
 
-header.scrolled {
-    position: fixed;
-    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
+/* Logo */
 .logo {
-    width: 120px;
-    transition: transform 0.3s ease;
+    width: 100px;
 }
 
-.logo:hover {
-    transform: scale(1.05);
+/* Navigation Menu */
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 5px; /* Modern gap instead of margins */
     padding: 0;
+    margin-left: 20px; /* Moves menu closer to the left */
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+nav li {
+    display: inline-block;
     margin: 0;
 }
 
 nav a {
     display: inline-block;
     text-decoration: none;
-    color: #e5e5e5;
-    font-size: 0.95rem;
-    padding: 8px 18px;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    font-weight: 500;
+    color: #fff;
+    font-size: 1rem;
+    padding: 14px 16px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 nav a:hover {
-    color: #fff;
-    background-color: rgba(229, 9, 20, 0.1);
+    color: #e50914; /* Netflix hover color */
+}
+/* Main Content */
+main {
+    padding-top: 80px; /* Prevent content from hiding under the fixed header */
 }
 
-nav a.active {
-    color: #fff;
-    font-weight: 700;
+/* Series Detail Section */
+.series-detail {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
 }
 
-/* Hero Section */
-.hero {
+.series-poster img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.series-info {
+    margin-left: 40px;
+    max-width: 600px;
+}
+
+.series-meta,
+.series-cast {
+    color: #b3b3b3;
+    margin: 10px 0;
+}
+
+.series-description {
+    margin-top: 20px;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Episode List Section */
+.episode-list {
+    padding: 20px;
+}
+
+.episode-list h2 {
+    margin-bottom: 10px;
+}
+
+.episode-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.episode-list li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.episode-list li:hover {
+    background-color: #2a2a2a;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.episode-info {
+    flex: 1;
+    text-align: left;
+}
+
+
+.play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.play-button:hover {
+    background-color: #f6121d;
+}
+
+/* Video Player Section */
+.video-container {
     position: relative;
     width: 100%;
-    height: 70vh;
-    margin-top: 0; /* Changed from 70px */
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
     overflow: hidden;
+    margin-top: 20px;
 }
 
-.hero::before {
-    content: '';
+.video-container iframe {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 60%;
-    background: linear-gradient(
-        0deg, 
-        rgba(20, 20, 20, 1) 0%, 
-        rgba(20, 20, 20, 0.7) 40%,
-        rgba(20, 20, 20, 0) 100%
-    );
-    z-index: 1;
+    height: 100%;
+    border: none;
 }
 
-.hero img {
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    animation: slowZoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-}
-
-.hero-content {
-    position: absolute;
-    bottom: 80px;
-    left: 4%;
-    max-width: 500px;
-    z-index: 2;
-    animation: fadeInUp 1s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-    letter-spacing: -0.5px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    color: #e5e5e5;
-}
-/* .hero-content .button {
-    padding: 15px 25px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-} */
-
-/* Movie Section */
-/* Movie Section */
-/* Movie Section */
-.movie-section {
-    padding: 40px 4%;
-    background-color: #141414;
-    /* No overflow hidden */
-}
-
-.movie-section h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 20px; /* CHANGE FROM 20px to 50px - much more space */
-    color: #e5e5e5;
-    position: relative;
-    z-index: 1;
-}
-
-.movie-container {
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
-    overflow-x: auto;
-    overflow-y: visible;
-    gap: 20px; /* Increased from 12px to 20px */
-    padding-bottom: 20px;
-    padding-top: 25px;
-    padding-left: 12px;
-    padding-right: 12px;
-    scroll-behavior: smooth;
-    scroll-padding: 4%;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: thin; /* Firefox scrollbar */
-    scrollbar-color: #e50914 rgba(51, 51, 51, 0.5); /* Firefox scrollbar colors */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-.movie {
-    min-width: 180px;
-    flex-shrink: 0;
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    position: relative;
-    z-index: 5;
+.loading-screen .logo {
+    width: 150px;
+    margin-bottom: 20px;
 }
 
-.movie:hover {
-    transform: scale(1.08) translateY(-8px);
-    z-index: 10;
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #e50914;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
 }
 
-.movie img {
-    width: 100%;
-    height: 270px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s ease;
-    cursor: pointer; /* Show it's clickable */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.movie:hover img {
-    box-shadow: 0 8px 24px rgba(229, 9, 20, 0.4);
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .series-detail {
+        flex-wrap: nowrap;
+        text-align: left;
+    }
+
+    .series-info {
+        margin-left: 40px;
+        margin-top: 0;
+    }
+
+    .episode-list li {
+        flex-wrap: nowrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .play-button {
+        margin-top: 0;
+        margin-left: 20px;
+    }
 }
 
-.movie h3 {
-    font-size: 1rem;
-    margin-top: 12px;
-    font-weight: 600;
-    color: #fff;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Show max 2 lines */
-    -webkit-box-orient: vertical;
-    white-space: normal; /* Changed from nowrap */
-    line-height: 1.3;
-    min-height: 2.6em; /* Reserve space for 2 lines */
-}
+@media (max-width: 768px) {
+    .series-detail {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
 
-.movie .button {
-    display: inline-block;
-    background-color: rgba(229, 9, 20, 0.9);
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
+    .series-info {
+        margin-left: 0;
+        margin-top: 20px;
+    }
 
-.movie:hover .button {
-    opacity: 1;
-}
+    .series-poster img {
+        max-width: 80%;
+    }
 
-.movie .button:hover {
-    background-color: #e50914;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+    nav {
+        max-width: 100%;
+    }
+
+    nav ul {
+        margin-left: 10px;
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 10px;
+    }
 }
 /* Main Page Scrollbar Styling */
 ::-webkit-scrollbar {
@@ -285,416 +291,181 @@ nav a.active {
     box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
 }
 
-::-webkit-scrollbar-thumb:active {
-    background: linear-gradient(180deg, #ff1a1a, #f40612);
-}
-
 /* Firefox Scrollbar */
 * {
     scrollbar-width: thin;
     scrollbar-color: #e50914 #141414;
 }
-/* Scrollbar Styling */
-.movie-container::-webkit-scrollbar {
-    height: 10px;
-}
-
-.movie-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #e50914, #f40612);
-    border-radius: 10px;
-    transition: background 0.3s ease;
-}
-
-.movie-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, #f40612, #ff1a1a);
-}
-
-.movie-container::-webkit-scrollbar-track {
-    background-color: rgba(51, 51, 51, 0.5);
-    border-radius: 10px;
-    margin: 0 4%;
-}
-
-/* General Buttons */
-.button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
     background-color: #e50914;
     color: #fff;
-    padding: 12px 28px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
     border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.button:hover {
-    background-color: #f40612;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5);
-}
-
-.button:active {
-    transform: translateY(0);
-}
-
-/* Coming Soon Section */
-.coming-soon {
-    padding: 40px;
-    text-align: center;
-}
-
-.coming-soon-banner {
-    background-color: #333;
-    padding: 30px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    color: #fff;
-}
-
-.coming-soon h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-}
-
-.coming-soon p {
-    font-size: 1.2em;
-    color: #ccc;
-}
-
-/* Movie Info Section */
-.movie-info {
-    text-align: left;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 8px;
-    color: #fff;
-    margin-top: 30px;
-}
-
-.movie-info h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.movie-description {
-    margin: 10px 0;
-}
-
-.movie-actions {
-    margin-top: 20px;
-}
-
-/* Disabled Button */
-button[disabled] {
-    background-color: #666;
-    cursor: not-allowed;
-}
-
-button[disabled]:hover {
-    background-color: #666;
-}
-
-/* Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loading-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loading-screen .logo {
-    width: 180px;
-    margin-bottom: 30px;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-.spinner {
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    border-top: 4px solid #e50914;
+    padding: 15px 20px;
+    font-size: 1.2rem;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 0.8s linear infinite;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    header {
-        padding: 12px 3%;
-    }
-    
-    body {
-        padding-top: 60px; /* Adjust for smaller header on mobile */
-    }
-
-    .logo {
-        width: 90px;
-    }
-
-    nav a {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-    }
-
-    .hero {
-        height: 50vh;
-        margin-top: 0; /* Changed from 60px */
-    }
-
-    .hero-content {
-        max-width: 85%;
-        bottom: 40px;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 0.95rem;
-    }
-
-    .hero-content .button {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-    }
-
-    .movie {
-        min-width: 140px;
-    }
-
-    .movie img {
-        height: 210px;
-    }
-
-    .movie-section {
-        padding: 30px 3%;
-    }
-
-    .movie-section h2 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-content p {
-        font-size: 0.85rem;
-    }
-
-    nav ul {
-        gap: 2px;
-    }
-
-    nav a {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
+#backToTop:hover {
+    background-color: #f40612;
+    transform: translateY(-3px);
 }
     </style>
-   <link rel="icon" type="image/png" href="G.png">
-    
-    
-    <!-- Open Graph Meta Tags (Facebook, Messenger, WhatsApp) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="WATCH GLITHFLIX TODAY!">
-    <meta property="og:description" content="Home page.">
-    <meta property="og:image" content="https://glith-020.github.io/Logonetflix.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://glith-020.github.io/glithflix.html">
-    
-    <!-- Twitter Card Meta Tags (for Twitter/X) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WATCH GLITHFLIX TODAY!">
-    <meta name="twitter:description" content="Home page.">
-    <meta name="twitter:image" content="https://glith-020.github.io/Logonetflix.png">
-    <meta name="twitter:image:alt" content="Glithflix Logo">
-    
-    <!-- Theme Color (for browser/mobile embeds) -->
-    <meta name="theme-color" 
-content="#E50914">
 </head>
 <body>
+    <!-- Loading Screen -->
     <div class="loading-screen">
         <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
         <div class="spinner"></div>
     </div>
+
     <header>
-    <a href="glithflix.html" aria-label="Glithflix Home">
         <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
-    </a>
-        <nav aria-label="Main navigation">
-    <ul>
-        <li><a href="glithflix.html" aria-current="page">Home</a></li>
-        <li><a href="Latest.html">Latest</a></li>
-        <li><a href="announcements.html">Announcements</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a href="glithflix.html">Home</a></li>
+                <li><a href="Latest.html">Latest</a></li>
+                <li><a href="https://discord.gg/aQwSqz3AWP">Discord</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <img src="SCP TESTS.png" alt="Featured Content">
-            <div class="hero-content">
+        <!-- Series Detail Section -->
+        <section class="series-detail">
+            <div class="series-poster">
+                <img src="SCP TESTS.png" alt="Series Title Poster">
+            </div>
+            <div class="series-info">
                 <h1>SCP: TESTS</h1>
-                <p>Footage of multiple events going around the S.C.P. Facility.</p>
-                <a href="series.html" class="button">Watch Now</a>
+                <p class="series-meta">2025 | 16+ | Action Horror</p>
+                <p class="series-description">
+                    Footage of multiple events going around the S.C.P. Facility.
+                </p>
+                <div class="series-cast">
+                    <p><strong>Cast:</strong> Dave Miller, Glith Rylan Wynter, LMGWOLF, Schnitzel, Petter, WuthKah, StarmanPapa</p>
+                    <p><strong>Director:</strong> Dave Miller, Glith Rylan Wynter</p>
+                </div>
             </div>
         </section>
-        <section class="movie-section">
-            <h2>Movies</h2>
-            <div class="movie-container" id="popular-movies">
-                <!-- Movies will be injected here by JavaScript -->
+
+        <!-- Episode List Section -->
+        <!-- Episode List Section -->
+<section class="episode-list">
+    <h2>Episodes</h2>
+    <ul>
+        <li onclick="playEpisode('episode1')">
+            <div class="episode-info">
+                <h3>Episode 1: SCP-087</h3>
+                <p>Duration: 4m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode2')">
+            <div class="episode-info">
+                <h3>Episode 2: SCP-002</h3>
+                <p>Duration: 32m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode3')">
+            <div class="episode-info">
+                <h3>Episode 3: Chaos Reigns</h3>
+                <p>Duration: 11m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode4')">
+            <div class="episode-info">
+                <h3>Episode 4: O5 in Danger</h3>
+                <p>Duration: 12m</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+        <li onclick="playEpisode('episode5')">
+            <div class="episode-info">
+                <h3>Episode 5: New Beginnings</h3>
+                <p>Duration: 9m 35s</p>
+            </div>
+            <button class="play-button">Play</button>
+        </li>
+    </ul>
+</section>
+
+        <!-- Video Player Section -->
+        <section class="video-player" id="videoPlayer" style="display: none;">
+            <div class="video-container">
+                <iframe id="episodeEmbed"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                        webkitallowfullscreen
+                        mozallowfullscreen>
+                </iframe>
             </div>
         </section>
     </main>
+    <button id="backToTop" style="display: none;">▲</button>
+
+    <script src="glithflix.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const popularMoviesContainer = document.getElementById('popular-movies');
-    if (!popularMoviesContainer) {
-        console.error("The 'popular-movies' container doesn't exist.");
-        return; // Exit early if container doesn't exist
+        function playEpisode(episodeId) {
+    const videoPlayer = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('episodeEmbed');
+
+    // Show the video player
+    videoPlayer.style.display = 'block';
+    
+    // Smooth scroll to video player
+    setTimeout(() => {
+        videoPlayer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    // Set the correct video source based on the episodeId
+    if (episodeId === 'episode1') {
+        iframe.src = "https://drive.google.com/file/d/1ufQaIk0ADEpSE3lM8zu4Rhqg57FdJ693/preview";
+    } else if (episodeId === 'episode2') {
+        iframe.src = "https://drive.google.com/file/d/1qJLkYT94Zu_MVM_dzYQtj77iwNP6ksQC/preview";
+    } else if (episodeId === 'episode3') {
+        iframe.src = "https://drive.google.com/file/d/1pBDt_Yev3VNNScWT0DPrXpMMwpAFPX56/preview";
+    } else if (episodeId === 'episode4') {
+        iframe.src = "https://drive.google.com/file/d/12tcmXWdirFnLweC-2xQZO7MLpvlCVU1X/preview";
+    } else if (episodeId === 'episode5') {
+        iframe.src = "https://drive.google.com/file/d/1K5VKQtsVllJeqWHEDgpx7mgbTyGgib6a/preview";
     }
-
-    const movies = [
-        {
-            title: 'Brotherhood vs Enclave',
-            description: 'A recording of a battle between two factions of the fallout universe.',
-            image: 'image.png',
-            link: 'battle.html'
-        },
-        {
-            title: 'THE FLESH PIT',
-            description: 'A short movie about the dangers of the Mystery Flesh Pit National Park.',
-            image: 'FLESHB.png', // Use the appropriate image path here
-            link: 'THE FLESH PIT.html' // Update the link to the page for The Flesh Pit movie
-        },
-        {
-            title: 'THE FLESH PIT 2',
-            description: 'A group of rangers notices a dissapearance and goes deep down to discover the truth.',
-            image: 'flesh2.png', // Use the appropriate image path here
-            link: 'fleshpit2.html' // Update the link to the page for The Flesh Pit movie
-        },
-         {
-            title: 'SCP: TESTS',
-            description: 'Footage of multiple events going around the S.C.P. Facility.',
-            image: 'SCP TESTS.png', // Use the appropriate image path here
-            link: 'series.html' // Update the link to the page for The Flesh Pit movie
-        },
-        {
-            title: 'TRIUMPH OF THE TRIPODS',
-            description: 'A short format film about War of The Worlds',
-            image: 'New Project (50).png', // Use the appropriate image path here
-            link: 'tripod.html' // Update the link to the page for The Flesh Pit movie
-        },
-          {
-            title: 'THE SURFACE',
-            description: 'In a world where the ground is scorched and the heavens no longer hear our cries, the angels walk among the ruins not as guardians, but as hunters, sent to erase what God has abandoned. The cities lie silent beneath ash-choked skies, their spires broken like the promises once whispered in prayer.',
-            image: 'cfewcrfew.png',
-            link: 'surface.html'
-        },
-        // You can add more movie objects here if needed
-    ];
-
-    function displayMovies(movies) {
-    popularMoviesContainer.innerHTML = ''; 
-    movies.forEach(movie => {
-        const movieDiv = document.createElement('div');
-        movieDiv.classList.add('movie');
-        
-        // Make image a clickable link
-        const movieLink = document.createElement('a');
-        movieLink.href = movie.link;
-        movieLink.style.display = 'block';
-        movieLink.style.textDecoration = 'none';
-        
-        const movieImg = document.createElement('img');
-        movieImg.src = movie.image;
-        movieImg.alt = movie.title;
-        movieImg.loading = 'lazy'; // Native lazy loading
-        
-        movieLink.appendChild(movieImg);
-        
-        const movieTitle = document.createElement('h3');
-        movieTitle.textContent = movie.title;
-        
-        const watchNowButton = document.createElement('a');
-        watchNowButton.href = movie.link;
-        watchNowButton.textContent = 'Watch Now';
-        watchNowButton.classList.add('button');
-        
-        movieDiv.appendChild(movieLink);
-        movieDiv.appendChild(movieTitle);
-        movieDiv.appendChild(watchNowButton);
-        popularMoviesContainer.appendChild(movieDiv);
-    });
 }
-
-    displayMovies(movies);
-});
+// Hide loading screen when page loads
 window.addEventListener('load', function() {
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
-        loadingScreen.classList.add('hidden');
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 1000);
     }
 });
-// Header scroll effect
-// Header scroll effect
-let lastScroll = 0;
-const header = document.querySelector('header');
-const body = document.body;
+// Back to top button
+const backToTopBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        header.classList.add('scrolled');
-        body.classList.add('scrolled');
+    if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
     } else {
-        header.classList.remove('scrolled');
-        body.classList.remove('scrolled');
+        backToTopBtn.style.display = 'none';
     }
-    
-    lastScroll = currentScroll;
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
     </script>
-    <footer style="background-color: #141414; padding: 40px 4%; text-align: center; color: #808080; border-top: 1px solid #333;">
-    <p>&copy; 2025 Glithflix. All rights reserved.</p>
-</footer>
 </body>
 </html>
