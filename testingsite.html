@@ -216,6 +216,7 @@ nav a.active {
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.3s ease;
+    cursor: pointer; /* Show it's clickable */
 }
 
 .movie:hover img {
@@ -631,30 +632,38 @@ content="#E50914">
     ];
 
     function displayMovies(movies) {
-        popularMoviesContainer.innerHTML = ''; 
-        movies.forEach(movie => {
-            const movieDiv = document.createElement('div');
-            movieDiv.classList.add('movie');
-            
-            const movieImg = document.createElement('img');
-            movieImg.src = movie.image;
-            movieImg.alt = movie.title;
-            movieImg.loading = 'lazy'; // Native lazy loading
-            
-            const movieTitle = document.createElement('h3');
-            movieTitle.textContent = movie.title;
-            
-            const watchNowButton = document.createElement('a');
-            watchNowButton.href = movie.link;
-            watchNowButton.textContent = 'Watch Now';
-            watchNowButton.classList.add('button');
-            
-            movieDiv.appendChild(movieImg);
-            movieDiv.appendChild(movieTitle);
-            movieDiv.appendChild(watchNowButton);
-            popularMoviesContainer.appendChild(movieDiv);
-        });
-    }
+    popularMoviesContainer.innerHTML = ''; 
+    movies.forEach(movie => {
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('movie');
+        
+        // Make image a clickable link
+        const movieLink = document.createElement('a');
+        movieLink.href = movie.link;
+        movieLink.style.display = 'block';
+        movieLink.style.textDecoration = 'none';
+        
+        const movieImg = document.createElement('img');
+        movieImg.src = movie.image;
+        movieImg.alt = movie.title;
+        movieImg.loading = 'lazy'; // Native lazy loading
+        
+        movieLink.appendChild(movieImg);
+        
+        const movieTitle = document.createElement('h3');
+        movieTitle.textContent = movie.title;
+        
+        const watchNowButton = document.createElement('a');
+        watchNowButton.href = movie.link;
+        watchNowButton.textContent = 'Watch Now';
+        watchNowButton.classList.add('button');
+        
+        movieDiv.appendChild(movieLink);
+        movieDiv.appendChild(movieTitle);
+        movieDiv.appendChild(watchNowButton);
+        popularMoviesContainer.appendChild(movieDiv);
+    });
+}
 
     displayMovies(movies);
 });
