@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch exclusive movies and series on Glithflix. Stream SCP: Tests, The Flesh Pit, and more original content.">
     <title>Glithflix</title>
     <style>
+        html {
+    scroll-behavior: smooth;
+}
         body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -164,14 +168,17 @@ nav a.active {
 .movie-container {
     display: flex;
     overflow-x: auto;
-    overflow-y: visible; /* Must be visible */
+    overflow-y: visible;
     gap: 12px;
     padding-bottom: 20px;
-    padding-top: 25px; /* CHANGE FROM 10px to 25px */
+    padding-top: 25px;
     padding-left: 12px;
     padding-right: 12px;
     scroll-behavior: smooth;
     scroll-padding: 4%;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* Firefox scrollbar */
+    scrollbar-color: #e50914 rgba(51, 51, 51, 0.5); /* Firefox scrollbar colors */
 }
 
 .movie {
@@ -496,14 +503,16 @@ content="#E50914">
         <div class="spinner"></div>
     </div>
     <header>
-        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="glithflix.html">Home</a></li>
-                <li><a href="Latest.html">Latest</a></li>
-                <li><a href="announcements.html">Announcements</a></li>
-            </ul>
-        </nav>
+    <a href="glithflix.html" aria-label="Glithflix Home">
+        <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
+    </a>
+        <nav aria-label="Main navigation">
+    <ul>
+        <li><a href="glithflix.html" aria-current="page">Home</a></li>
+        <li><a href="Latest.html">Latest</a></li>
+        <li><a href="announcements.html">Announcements</a></li>
+    </ul>
+</nav>
     </header>
     <main>
         <section class="hero">
@@ -523,10 +532,10 @@ content="#E50914">
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM is fully loaded");
     const popularMoviesContainer = document.getElementById('popular-movies');
     if (!popularMoviesContainer) {
         console.error("The 'popular-movies' container doesn't exist.");
+        return; // Exit early if container doesn't exist
     }
 
     const movies = [
@@ -578,6 +587,7 @@ content="#E50914">
             const movieImg = document.createElement('img');
             movieImg.src = movie.image;
             movieImg.alt = movie.title;
+            movieImg.loading = 'lazy'; // Native lazy loading
             
             const movieTitle = document.createElement('h3');
             movieTitle.textContent = movie.title;
@@ -599,11 +609,12 @@ content="#E50914">
 window.addEventListener('load', function() {
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
-        loadingScreen.style.display = 'none';
-    } else {
-        console.error('Loading screen element not found.');
+        loadingScreen.classList.add('hidden');
     }
 });
     </script>
+    <footer style="background-color: #141414; padding: 40px 4%; text-align: center; color: #808080; border-top: 1px solid #333;">
+    <p>&copy; 2025 Glithflix. All rights reserved.</p>
+</footer>
 </body>
 </html>
