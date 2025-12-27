@@ -214,6 +214,10 @@ nav a:hover {
     header {
         padding: 12px 3%;
     }
+    
+    body {
+        padding-top: 60px; /* Adjust for smaller header on mobile */
+    }
 
     .logo {
         width: 90px;
@@ -222,10 +226,6 @@ nav a:hover {
     nav a {
         padding: 6px 12px;
         font-size: 0.85rem;
-    }
-
-    body {
-        padding-top: 60px; /* Adjust for smaller header on mobile */
     }
 
     .movie-detail {
@@ -313,5 +313,6 @@ nav a:hover {
         font-size: 0.8rem;
     }
 }
+
 
 
