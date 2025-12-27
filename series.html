@@ -100,8 +100,9 @@
                 </iframe>
             </div>
         </section>
+        <button id="backToTop">Back to Top ▲</button>
     </main>
-    <button id="backToTop" style="display: none;">▲</button>
+    
 
     <script>
     function playEpisode(episodeId) {
@@ -145,19 +146,12 @@
     });
 
     // Back to top button
-    const backToTopBtn = document.getElementById('backToTop');
+   // Back to top button - always visible at bottom
+const backToTopBtn = document.getElementById('backToTop');
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'block';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
     // Header scroll effect
     let lastScroll = 0;
