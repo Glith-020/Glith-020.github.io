@@ -5,6 +5,14 @@ body {
     color: #fff;
 }
 
+body {
+    padding-top: 70px; /* Add space for header */
+}
+
+body.scrolled {
+    padding-top: 0; /* Remove padding when scrolled */
+}
+
 /* Header */
 header {
     display: flex;
@@ -12,7 +20,7 @@ header {
     align-items: center;
     padding: 15px 4%;
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
-    position: fixed;
+    position: absolute; /* Changed from fixed */
     top: 0;
     width: 100%;
     box-sizing: border-box;
@@ -22,11 +30,13 @@ header {
 }
 
 header.scrolled {
+    position: fixed;
     background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%);
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
+
 main {
-    padding-top: 80px; /* Prevent content from hiding under the fixed header */
+    padding-top: 0; /* Changed from 80px */
 }
 
 /* Logo */
@@ -197,6 +207,23 @@ nav a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    header {
+        padding: 12px 3%;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    body {
+        padding-top: 60px; /* Adjust for smaller header on mobile */
+    }
+
     .movie-detail {
         flex-direction: column;
         align-items: center;
@@ -271,4 +298,14 @@ nav a:hover {
 * {
     scrollbar-width: thin;
     scrollbar-color: #e50914 #141414;
+}
+@media (max-width: 480px) {
+    nav ul {
+        gap: 2px;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
 }
