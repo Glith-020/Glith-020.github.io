@@ -1,7 +1,11 @@
 html {
     scroll-behavior: smooth;
 }
-        body {
+        html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #141414;
@@ -36,7 +40,7 @@ header.scrolled {
 }
 
 main {
-    padding-top: 0; /* Changed from 80px */
+    padding-top: 0; /* Remove extra padding */
 }
 
 /* Logo */
@@ -309,4 +313,5 @@ nav a:hover {
         font-size: 0.8rem;
     }
 }
+
 
