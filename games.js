@@ -17,14 +17,17 @@ window.addEventListener('load', function() {
 // Header scroll effect
 let lastScroll = 0;
 const header = document.querySelector('header');
+const body = document.body;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 50) {
         header.classList.add('scrolled');
+        body.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
+        body.classList.remove('scrolled');
     }
     
     lastScroll = currentScroll;
