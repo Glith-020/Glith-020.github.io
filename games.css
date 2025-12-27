@@ -1,11 +1,11 @@
-body {
+html {
+    scroll-behavior: smooth;
+}
+        body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #141414;
     color: #fff;
-}
-
-body {
     padding-top: 70px; /* Add space for header */
 }
 
@@ -309,3 +309,4 @@ nav a:hover {
         font-size: 0.8rem;
     }
 }
+
