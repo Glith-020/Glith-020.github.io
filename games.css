@@ -1,6 +1,4 @@
-html {
-    scroll-behavior: smooth;
-}
+
         html {
     scroll-behavior: smooth;
 }
@@ -214,7 +212,6 @@ nav a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    @media (max-width: 768px) {
     header {
         padding: 8px 3%; /* Reduced from 12px */
     }
@@ -307,6 +304,10 @@ nav a:hover {
     box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
 }
 
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, #ff1a1a, #f40612);
+}
+
 /* Firefox Scrollbar */
 * {
     scrollbar-width: thin;
@@ -322,6 +323,7 @@ nav a:hover {
         font-size: 0.8rem;
     }
 }
+
 
 
 
