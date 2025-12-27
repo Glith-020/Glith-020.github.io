@@ -1,20 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const playButton = document.querySelector('.play-button');
-    const movieDetailSection = document.querySelector('.movie-detail');
-    const videoPlayerSection = document.getElementById('videoPlayer');
-    const movieVideo = document.getElementById('movieVideo');
-
-    playButton.addEventListener('click', function() {
-        movieDetailSection.style.display = 'none';
-        videoPlayerSection.style.display = 'block';
-        movieVideo.play();
-    });
+    // This function is handled by inline playVideo() in HTML
+    // Removed to avoid conflicts
 });
 window.addEventListener('load', function() {
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
-        loadingScreen.style.display = 'none';
-    } else {
-        console.error('Loading screen element not found.');
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 1000);
     }
+});
+// Header scroll effect
+let lastScroll = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
 });
