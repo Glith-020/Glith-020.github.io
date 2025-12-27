@@ -15,7 +15,9 @@
     </div>
 
     <header>
-        <img src="Logonetflix.png" alt="Netflix Logo" class="logo">
+        <a href="glithflix.html" aria-label="Glithflix Home">
+            <img src="Logonetflix.png" alt="Glithflix Logo" class="logo">
+        </a>
         <nav>
             <ul>
                 <li><a href="glithflix.html">Home</a></li>
@@ -59,18 +61,20 @@
 
     <script src="games.js"></script>
     <script>
-        function playVideo(type) {
-            const videoPlayer = document.getElementById('videoPlayer');
-            const iframe = document.getElementById('movieEmbed');
-
-            // Show the video player
-            videoPlayer.style.display = 'block';
-
-            // Set the correct video source
-            if (type === 'movie') {
-                iframe.src = "https://drive.google.com/file/d/1Lq7zWSqnZ0Bxl1XfsPBujvALYCgQ6W3x/preview";
-            }
-        }
+        function playVideo() {
+    const videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.style.display = 'block';
+    
+    // Smooth scroll to video
+    setTimeout(() => {
+        videoPlayer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+    
+    var iframe = document.getElementById('movieEmbed');
+    if (!iframe.src) {
+        iframe.src = "https://drive.google.com/file/d/1A2PA3lfLHoYI6hxWiQfWOGX1tLBPotiY/preview";
+    }
+}
     </script>
 </body>
 </html>
