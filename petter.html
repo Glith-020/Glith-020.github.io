@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #494b4a 0%, #7f9796 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: 'Arial', sans-serif;
             color: white;
         }
@@ -76,7 +76,7 @@
             margin-top: 20px;
             padding: 15px 40px;
             font-size: 20px;
-            background: linear-gradient(135deg, #494b4a 0%, #7f9796 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 10px;
@@ -99,12 +99,12 @@
         </div>
         <canvas id="gameCanvas" width="600" height="600"></canvas>
         <div class="controls">
-            Use Arrow Keys or WASD to control the petter clone
+            Use Arrow Keys or WASD to control the petter clone.
         </div>
     </div>
 
     <div class="game-over" id="gameOver">
-        <h2>YOU SUCK!</h2>
+        <h2>You suck!</h2>
         <p style="font-size: 24px;">Final Score: <span id="finalScore">0</span></p>
         <button onclick="restartGame()">Play Again</button>
     </div>
@@ -213,7 +213,8 @@
             // Draw snake body
             for (let i = snake.length - 1; i >= 0; i--) {
                 const segment = snake[i];
-                const size = segmentSize * (1 - i * 0.005);
+                // Keep size positive - gradually taper but never go below 8
+                const size = Math.max(segmentSize * (1 - i * 0.002), 8);
                 
                 const gradient = ctx.createRadialGradient(
                     segment.x, segment.y, 0,
