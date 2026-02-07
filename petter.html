@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #494b4a 0%, #7f9796 100%);
             font-family: 'Arial', sans-serif;
             color: white;
         }
@@ -76,7 +76,7 @@
             margin-top: 20px;
             padding: 15px 40px;
             font-size: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #494b4a 0%, #7f9796 100%);
             color: white;
             border: none;
             border-radius: 10px;
@@ -99,7 +99,7 @@
         </div>
         <canvas id="gameCanvas" width="600" height="600"></canvas>
         <div class="controls">
-            Use Arrow Keys or WASD to control the petter clone.
+            Use Arrow Keys or WASD to control the snake
         </div>
     </div>
 
@@ -115,6 +115,7 @@
         // ============================================
         // Default snake face - change this to any image URL
         const SNAKE_FACE_IMAGE = 'petter.png';
+        const FOOD_IMAGE = 'burger.png';
         
         // Fallback image if petter.png fails to load
         const FALLBACK_FACE = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23FFD700"/><circle cx="35" cy="40" r="6" fill="black"/><circle cx="65" cy="40" r="6" fill="black"/><path d="M 25 65 Q 50 80 75 65" stroke="black" stroke-width="4" fill="none" stroke-linecap="round"/></svg>';
@@ -147,6 +148,9 @@
         };
         
         snakeFaceImg.src = SNAKE_FACE_IMAGE;
+
+        const foodImg = new Image();
+        foodImg.src = FOOD_IMAGE;
 
         highScoreElement.textContent = highScore;
 
@@ -247,15 +251,22 @@
             }
 
             // Draw food
-            ctx.fillStyle = '#ff6b6b';
-            ctx.beginPath();
-            ctx.arc(food.x, food.y, 10, 0, Math.PI * 2);
-            ctx.fill();
-            
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.beginPath();
-            ctx.arc(food.x - 3, food.y - 3, 4, 0, Math.PI * 2);
-            ctx.fill();
+            if (foodImg.complete && foodImg.naturalWidth > 0) {
+                // Draw burger image
+                const foodSize = 20;
+                ctx.drawImage(foodImg, food.x - foodSize, food.y - foodSize, foodSize * 2, foodSize * 2);
+            } else {
+                // Fallback to red circle if image doesn't load
+                ctx.fillStyle = '#ff6b6b';
+                ctx.beginPath();
+                ctx.arc(food.x, food.y, 10, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.beginPath();
+                ctx.arc(food.x - 3, food.y - 3, 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
 
         function placeFood() {
